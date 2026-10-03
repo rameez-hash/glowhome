@@ -304,7 +304,7 @@ export function Hero() {
 
       <a
         href="#about"
-        className="hero-scroll absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-ink-dim transition-colors hover:text-brass-soft sm:flex"
+        className="hero-scroll absolute bottom-5 right-6 z-10 hidden flex-col items-center gap-2 text-ink-dim transition-colors hover:text-brass-soft sm:flex md:right-10"
         aria-label="Scroll to About Glow Home"
       >
         <span className="text-[0.6rem] uppercase tracking-[0.26em]">Scroll</span>
