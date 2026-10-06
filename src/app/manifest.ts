@@ -12,10 +12,22 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#0E0E0C",
     icons: [
       {
-        src: "/media/glow-home-brand-logo.png",
-        sizes: "704x1020",
+        src: "/icon-192.png",
+        sizes: "192x192",
         type: "image/png",
         purpose: "any",
+      },
+      {
+        src: "/icon.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icon-512-maskable.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
       },
     ],
   };
