@@ -64,7 +64,7 @@ export function Process() {
           <div className="absolute left-0 right-0 top-7 hidden h-px bg-line md:block" />
           <div className="process-progress absolute left-0 right-0 top-7 hidden h-px origin-left bg-brass md:block" />
 
-          <div className="process-grid grid gap-8 md:grid-cols-4">
+          <div className="process-grid grid gap-8 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 md:grid-cols-4 md:gap-8">
             {processSteps.map((step) => (
               <article key={step.step} className="process-step relative">
                 <div className="mb-5 flex h-14 w-14 items-center justify-center border border-brass bg-bg text-sm tracking-[0.16em] text-brass-soft">

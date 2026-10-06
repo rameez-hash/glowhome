@@ -1,24 +1,10 @@
-import {
-  breadcrumbJsonLd,
-  faqJsonLd,
-  organizationJsonLd,
-  serviceJsonLd,
-  websiteJsonLd,
-} from "@/lib/seo";
+import { serializeJsonLd } from "@/lib/seo";
 
-export function JsonLd() {
-  const graph = [
-    organizationJsonLd(),
-    websiteJsonLd(),
-    faqJsonLd(),
-    breadcrumbJsonLd(),
-    ...serviceJsonLd(),
-  ];
-
+export function JsonLd({ data }: { data: unknown }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }}
     />
   );
 }

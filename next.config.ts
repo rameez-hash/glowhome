@@ -2,12 +2,36 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ["image/webp"],
+    deviceSizes: [640, 828, 1080, 1600],
+    imageSizes: [64, 128, 256, 384],
+    qualities: [75],
+    minimumCacheTTL: 2678400,
   },
   poweredByHeader: false,
   compress: true,
+  async headers() {
+    return [
+      {
+        source: "/media/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=2592000, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source: "/llms.txt",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -2,17 +2,26 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
 import { Solutions } from "@/components/sections/Solutions";
+import { FeatureSpotlight } from "@/components/sections/FeatureSpotlight";
 import { Services } from "@/components/sections/Services";
 import { Products } from "@/components/sections/Products";
-import { Projects } from "@/components/sections/Projects";
+import { Decor } from "@/components/sections/Decor";
+import { Brands } from "@/components/sections/Brands";
 import { Process } from "@/components/sections/Process";
+import { Clients } from "@/components/sections/Clients";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
+import { BrandMarquee } from "@/components/ui/BrandMarquee";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { faqJsonLd, productListJsonLd, serviceJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Glow Home | Smart Home Automation & Premium Lighting Pakistan",
-  description: siteConfig.longDescription,
+  title: {
+    absolute:
+      "Glow Home | Lighting Store in Pakistan, Chandeliers, LED & Smart Lights",
+  },
+  description: siteConfig.description,
   alternates: { canonical: "/" },
 };
 
@@ -20,28 +29,19 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <div className="section-line" />
       <Intro />
+      <BrandMarquee />
       <Process />
+      <FeatureSpotlight />
       <Solutions />
       <Services />
       <Products />
-      <Projects />
+      <Decor />
+      <Brands />
+      <Clients />
       <FAQ />
       <Contact />
-
-      <section
-        className="border-y border-line bg-bg py-10"
-        aria-label="Glow Home keywords"
-      >
-        <div className="container-site">
-          <p className="text-center text-xs leading-relaxed tracking-[0.08em] text-ink-dim md:text-sm">
-            Smart home automation · Premium lighting · Smart switches · Sensors ·
-            Decorative lighting · Architectural lighting · Energy-efficient
-            solutions · Luxury residences · Commercial projects · Pakistan
-          </p>
-        </div>
-      </section>
+      <JsonLd data={[faqJsonLd(), productListJsonLd(), ...serviceJsonLd()]} />
     </>
   );
 }

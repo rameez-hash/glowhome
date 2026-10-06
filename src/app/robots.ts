@@ -1,37 +1,30 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 
+const aiCrawlers = [
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "Google-Extended",
+  "anthropic-ai",
+  "ClaudeBot",
+  "Claude-User",
+  "Claude-SearchBot",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Applebot-Extended",
+  "Bingbot",
+  "meta-externalagent",
+  "Amazonbot",
+  "DuckAssistBot",
+  "CCBot",
+];
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-      },
-      {
-        userAgent: "GPTBot",
-        allow: "/",
-      },
-      {
-        userAgent: "ChatGPT-User",
-        allow: "/",
-      },
-      {
-        userAgent: "Google-Extended",
-        allow: "/",
-      },
-      {
-        userAgent: "anthropic-ai",
-        allow: "/",
-      },
-      {
-        userAgent: "ClaudeBot",
-        allow: "/",
-      },
-      {
-        userAgent: "PerplexityBot",
-        allow: "/",
-      },
+      { userAgent: "*", allow: "/" },
+      ...aiCrawlers.map((userAgent) => ({ userAgent, allow: "/" })),
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
     host: siteConfig.url,

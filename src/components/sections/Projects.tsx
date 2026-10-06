@@ -87,7 +87,7 @@ export function Projects() {
               >
                 <Image
                   src={project.image}
-                  alt={`${project.title} — ${project.category}`}
+                  alt={`${project.title}, ${project.category}`}
                   fill
                   sizes="420px"
                   className="object-cover"

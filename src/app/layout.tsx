@@ -1,30 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Manrope, Syne } from "next/font/google";
+import { Lora, Montserrat } from "next/font/google";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/lib/site";
+import { siteKeywords } from "@/lib/keywords";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import "@/lib/fontawesome";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const instrument = Instrument_Serif({
-  variable: "--font-instrument",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -38,41 +34,37 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Glow Home | Smart Home Automation & Premium Lighting",
+    default: "Glow Home | Lighting Store in Pakistan, Chandeliers & LED Lights",
     template: "%s | Glow Home",
   },
-  description: siteConfig.longDescription,
-  keywords: [...siteConfig.keywords],
+  description: siteConfig.description,
+  keywords: [...siteKeywords],
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
-  category: "Home Automation",
-  classification: "Smart Home Automation and Lighting Solutions",
-  alternates: {
-    canonical: "/",
-  },
+  category: "Lighting",
+  classification: "Lighting Store, Decorative Lighting and Smart Lighting Solutions",
+  formatDetection: { telephone: true, email: true, address: true },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Glow Home | Smart Home Automation & Premium Lighting",
+    title: "Glow Home | Lighting Store in Pakistan, Chandeliers & LED Lights",
     description: siteConfig.description,
     images: [
       {
-        url: "/media/glow-home-luxury-living-room-lighting.png",
-        width: 1200,
-        height: 630,
-        alt: "Glow Home premium lighting and smart home solutions",
+        url: "/media/glow-home-solution-luxury-residence.jpg",
+        alt: "Luxury residence lit by Glow Home chandeliers and ambient lighting",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Glow Home | Smart Home Automation & Premium Lighting",
+    title: "Glow Home | Lighting Store in Pakistan, Chandeliers & LED Lights",
     description: siteConfig.description,
-    images: ["/media/glow-home-luxury-living-room-lighting.png"],
+    images: ["/media/glow-home-solution-luxury-residence.jpg"],
   },
   robots: {
     index: true,
@@ -94,10 +86,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${manrope.variable} ${instrument.variable} h-full`}
+      className={`${lora.variable} ${montserrat.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-bg text-ink antialiased">
-        <JsonLd />
+        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <div className="noise" aria-hidden />
         <Header />
         <main className="flex-1">{children}</main>

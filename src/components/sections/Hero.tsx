@@ -48,55 +48,14 @@ function HeroPanel({
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
-  const slotRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const el = root.current;
-    const logo = logoRef.current;
-    const slot = slotRef.current;
-    if (!el || !logo || !slot) return;
+    if (!el) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = gsap.context(() => {
-      const target = document.getElementById("header-logo-slot");
-      const ease = gsap.parseEase("power2.inOut");
-
-      /* ---------- logo morph: hero slot -> header slot ---------- */
-      if (target) {
-        const place = (morph: number) => {
-          const a = slot.getBoundingClientRect();
-          const b = target.getBoundingClientRect();
-          const t = ease(morph);
-
-          gsap.set(logo, {
-            x: a.left + (b.left - a.left) * t,
-            // Never travel above the header row while flying up
-            y: Math.max(a.top + (b.top - a.top) * t, b.top),
-            width: a.width + (b.width - a.width) * t,
-            height: a.height + (b.height - a.height) * t,
-          });
-        };
-
-        gsap.set(logo, { position: "fixed", top: 0, left: 0, zIndex: 70 });
-        place(0);
-
-        ScrollTrigger.create({
-          trigger: el,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            place(gsap.utils.clamp(0, 1, (self.progress - 0.05) / 0.42));
-          },
-          onRefresh: (self) => {
-            place(gsap.utils.clamp(0, 1, (self.progress - 0.05) / 0.42));
-          },
-        });
-      }
-
       /* ---------- intro reveal ---------- */
       gsap
         .timeline({ defaults: { ease: "power3.out" } })
@@ -112,40 +71,39 @@ export function Hero() {
           0,
         )
         .fromTo(
-          logo,
-          { autoAlpha: 0, scale: 0.82, filter: "blur(8px)" },
+          ".hero-brand",
+          { autoAlpha: 0, y: 18 },
           {
             autoAlpha: 1,
-            scale: 1,
-            filter: "blur(0px)",
-            duration: 1.4,
+            y: 0,
+            duration: 1.1,
             ease: "power3.out",
           },
-          0.45,
+          0.35,
         )
         .fromTo(
           ".hero-headline .hero-line",
           { yPercent: 115 },
           { yPercent: 0, duration: 1.05, stagger: 0.1 },
-          1.15,
+          0.9,
         )
         .fromTo(
           ".hero-copy",
           { autoAlpha: 0, y: 22 },
           { autoAlpha: 1, y: 0, duration: 0.9 },
-          1.5,
+          1.25,
         )
         .fromTo(
           ".hero-cta",
           { autoAlpha: 0, y: 18 },
           { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.1 },
-          1.65,
+          1.4,
         )
         .fromTo(
           ".hero-scroll",
           { autoAlpha: 0, y: -10 },
           { autoAlpha: 1, y: 0, duration: 0.8 },
-          1.9,
+          1.6,
         );
 
       /* ---------- living background ---------- */
@@ -248,35 +206,24 @@ export function Hero() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_45%,transparent_0%,rgba(14,14,12,0.5)_100%)]" />
       </div>
 
-      {/* No z-index here: a stacking context would trap the flying logo under the header */}
-      <div className="relative flex min-h-[100svh] flex-col items-center justify-center px-5 py-20">
-        {/* Morph origin — flying logo starts here and lands in the header */}
-        <div
-          ref={slotRef}
-          id="hero-logo-slot"
-          className="relative w-[min(78vw,25rem)]"
-          style={{ aspectRatio: "687 / 333" }}
-        >
+      <div className="relative flex min-h-[100svh] flex-col items-center px-5 pb-8 pt-24 sm:pb-10">
+        <div className="hero-content flex flex-1 flex-col items-center justify-center text-center">
           <div
-            ref={logoRef}
-            className="pointer-events-none absolute inset-0"
-            aria-hidden
+            className="hero-brand relative mb-8 w-[min(72vw,22rem)] sm:w-[min(70vw,25rem)]"
+            style={{ aspectRatio: "687 / 333" }}
           >
             <Image
               src="/media/glow-home-brand-logo.png"
-              alt=""
+              alt="Glow Home"
               fill
-              priority
-              sizes="(max-width: 768px) 78vw, 400px"
+              preload
+              sizes="(max-width: 640px) 72vw, 400px"
               className="object-contain drop-shadow-[0_22px_60px_rgba(0,0,0,0.6)]"
             />
           </div>
-        </div>
-
-        <div className="hero-content mt-8 flex max-w-2xl flex-col items-center text-center">
-          <h1 className="hero-headline font-[family-name:var(--font-serif)] text-[clamp(1.9rem,4.2vw,3.25rem)] leading-[1.14] text-ink">
+          <h1 className="hero-headline font-[family-name:var(--font-display)] text-[clamp(1.9rem,4.2vw,3.25rem)] font-medium leading-[1.25] text-ink">
             {headline.map((line, i) => (
-              <span key={line} className="block overflow-hidden">
+              <span key={line} className="block overflow-hidden pb-[0.15em]">
                 <span className="hero-line block">
                   {line}
                   {i < headline.length - 1 ? "." : ""}
@@ -285,49 +232,50 @@ export function Hero() {
             ))}
           </h1>
 
-          <p className="hero-copy mt-6 max-w-xl text-[clamp(1rem,1.6vw,1.15rem)] leading-[1.7] text-ink-muted">
-            Premium lighting, smart switches, sensors, and complete home
-            automation — crafted for modern residences, offices, and commercial
-            spaces.
+          <p className="hero-copy mt-6 max-w-xl text-[clamp(1.05rem,1.7vw,1.2rem)] leading-[1.75] text-ink/85">
+            Premium fixtures, smart switches, and complete automation, designed for homes, offices, and commercial spaces that deserve
+            atmosphere with ease.
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a href="#contact" className="hero-cta btn !min-h-12 !px-7">
+          <div className="mt-9 flex w-full max-w-xs flex-col items-stretch gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+            <a href="/contact" className="hero-cta btn !min-h-12 !px-7">
               Start a Project
             </a>
-            <a href="#about" className="hero-cta btn btn-ghost !min-h-12 !px-7">
+            <a href="/about" className="hero-cta btn btn-ghost !min-h-12 !px-7">
               Explore Glow Home
             </a>
           </div>
         </div>
-      </div>
 
-      <a
-        href="#about"
-        className="hero-scroll absolute bottom-5 right-6 z-10 hidden flex-col items-center gap-2 text-ink-dim transition-colors hover:text-brass-soft sm:flex md:right-10"
-        aria-label="Scroll to About Glow Home"
-      >
-        <span className="text-[0.6rem] uppercase tracking-[0.26em]">Scroll</span>
-
-        <span className="relative flex h-8 w-5 items-start justify-center rounded-full border border-line-strong pt-1.5">
-          <span className="scroll-dot h-1 w-1 rounded-full bg-brass" />
-        </span>
-
-        <svg
-          className="scroll-chevron h-3 w-3 text-brass"
-          viewBox="0 0 12 12"
-          fill="none"
-          aria-hidden
+        <a
+          href="#about"
+          className="hero-scroll z-10 mt-8 flex flex-col items-center gap-2 text-brass-soft transition-colors hover:text-brass"
+          aria-label="Scroll to About Glow Home"
         >
-          <path
-            d="M1.5 3.5 6 8l4.5-4.5"
-            stroke="currentColor"
-            strokeWidth="1.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </a>
+          <span className="text-[0.65rem] uppercase tracking-[0.28em] text-ink">
+            Scroll
+          </span>
+
+          <span className="relative flex h-9 w-5 items-start justify-center rounded-full border border-brass/70 bg-bg/35 pt-1.5 backdrop-blur-sm">
+            <span className="scroll-dot h-1.5 w-1.5 rounded-full bg-brass" />
+          </span>
+
+          <svg
+            className="scroll-chevron h-3.5 w-3.5 text-brass"
+            viewBox="0 0 12 12"
+            fill="none"
+            aria-hidden
+          >
+            <path
+              d="M1.5 3.5 6 8l4.5-4.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
     </section>
   );
 }
