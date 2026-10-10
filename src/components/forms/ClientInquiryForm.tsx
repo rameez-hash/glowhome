@@ -1,32 +1,33 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { siteConfig } from "@/lib/site";
+import { useRouter } from "next/navigation";
+import { Honeypot } from "@/components/forms/Honeypot";
+import { submitInquiry } from "@/lib/inquiry";
 
 type ClientInquiryFormProps = {
   clientName: string;
 };
 
 export function ClientInquiryForm({ clientName }: ClientInquiryFormProps) {
-  const [sent, setSent] = useState(false);
+  const router = useRouter();
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") || "");
-    const phone = String(data.get("phone") || "");
-    const email = String(data.get("email") || "");
-    const message = String(data.get("message") || "");
-
-    const subject = encodeURIComponent(
-      `Glow Home inquiry, ${clientName} project, ${name}`,
-    );
-    const body = encodeURIComponent(
-      `Client reference: ${clientName}\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`,
-    );
-
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
-    setSent(true);
+    setSending(true);
+    setError("");
+    try {
+      await submitInquiry(event.currentTarget, {
+        subject: `Glow Home inquiry, ${clientName} project`,
+        details: { "Client reference": clientName },
+      });
+      router.push("/thank-you");
+    } catch (err) {
+      setError((err as Error).message);
+      setSending(false);
+    }
   };
 
   return (
@@ -76,12 +77,17 @@ export function ClientInquiryForm({ clientName }: ClientInquiryFormProps) {
             placeholder={`Tell us about your project related to ${clientName}...`}
           />
         </label>
-        <button type="submit" className="btn w-full md:w-fit">
-          Contact Glow Home
+        <Honeypot />
+        <button
+          type="submit"
+          disabled={sending}
+          className="btn w-full disabled:cursor-wait disabled:opacity-60 md:w-fit"
+        >
+          {sending ? "Sending..." : "Contact Glow Home"}
         </button>
-        {sent ? (
-          <p className="text-sm text-brass-soft" role="status">
-            Opening your email client, we&apos;ll reply shortly.
+        {error ? (
+          <p className="text-sm text-red-400" role="alert">
+            {error}
           </p>
         ) : null}
       </div>

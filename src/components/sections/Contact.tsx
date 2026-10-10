@@ -1,27 +1,31 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Reveal } from "@/components/animations/Reveal";
+import { Honeypot } from "@/components/forms/Honeypot";
 import { ContactDetails } from "@/components/ui/ContactDetails";
 import { SocialLinks } from "@/components/ui/SocialLinks";
-import { siteConfig } from "@/lib/site";
+import { submitInquiry } from "@/lib/inquiry";
 
 export function Contact() {
-  const [sent, setSent] = useState(false);
+  const router = useRouter();
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") || "");
-    const phone = String(data.get("phone") || "");
-    const email = String(data.get("email") || "");
-    const message = String(data.get("message") || "");
-    const subject = encodeURIComponent(`Glow Home consultation, ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nProject details:\n${message}`,
-    );
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
-    setSent(true);
+    setSending(true);
+    setError("");
+    try {
+      await submitInquiry(event.currentTarget, {
+        subject: "Glow Home consultation request",
+      });
+      router.push("/thank-you");
+    } catch (err) {
+      setError((err as Error).message);
+      setSending(false);
+    }
   };
 
   return (
@@ -117,12 +121,17 @@ export function Contact() {
                   placeholder="Home type, rooms, lighting goals..."
                 />
               </label>
-              <button type="submit" className="btn mt-1 w-full sm:w-fit">
-                Request Consultation
+              <Honeypot />
+              <button
+                type="submit"
+                disabled={sending}
+                className="btn mt-1 w-full disabled:cursor-wait disabled:opacity-60 sm:w-fit"
+              >
+                {sending ? "Sending..." : "Request Consultation"}
               </button>
-              {sent ? (
-                <p className="text-sm text-brass-soft" role="status">
-                  Opening your email client, we&apos;ll respond shortly.
+              {error ? (
+                <p className="text-sm text-red-400" role="alert">
+                  {error}
                 </p>
               ) : null}
             </form>
