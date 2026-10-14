@@ -113,23 +113,23 @@ export default function AutomationPage() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-lg xl:max-w-xl">
             <div className="relative overflow-hidden border border-line bg-bg-elevated">
-              <div className="relative aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]">
+              <div className="relative aspect-[5/4] sm:aspect-[16/11]">
                 <Image
                   src="/media/about-intelligent-control.jpg"
                   alt="Smart lighting control panel for Glow Home automation"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 48vw"
-                  className="object-cover object-[62%_center]"
+                  sizes="(max-width: 1024px) 90vw, 40vw"
+                  className="object-cover object-center"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/15 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/85 via-bg/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
                   <p className="text-[0.65rem] uppercase tracking-[0.18em] text-brass-soft">
                     Preview
                   </p>
-                  <p className="mt-2 max-w-sm font-[family-name:var(--font-display)] text-2xl tracking-tight text-ink md:text-[1.85rem]">
+                  <p className="mt-2 max-w-sm font-[family-name:var(--font-display)] text-xl tracking-tight text-ink md:text-2xl">
                     Control that stays invisible until you need it
                   </p>
                 </div>
