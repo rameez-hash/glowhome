@@ -82,11 +82,30 @@ export function ContactDetails({
           <p className="text-[0.65rem] uppercase tracking-[0.2em] text-brass-soft">
             Visit
           </p>
-          <div className="group mt-4 flex items-start gap-3">
-            <LocationIcon className="mt-0.5 h-[1.05rem] w-[1.05rem] shrink-0 text-brass transition-colors group-hover:text-brass-soft" />
-            <p className="max-w-sm text-sm leading-relaxed tracking-[0.02em] text-ink-muted">
-              {siteConfig.location.address}
-            </p>
+          <div className={`mt-4 ${compact ? "space-y-4" : "space-y-5"}`}>
+            {siteConfig.locations.map((place) => (
+              <a
+                key={place.label}
+                href={place.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-3 text-ink transition-colors hover:text-brass-soft"
+              >
+                <LocationIcon className="mt-0.5 h-[1.05rem] w-[1.05rem] shrink-0 text-brass transition-colors group-hover:text-brass-soft" />
+                <span className="max-w-sm">
+                  <span className="block text-[0.65rem] uppercase tracking-[0.16em] text-brass-soft">
+                    {place.label}
+                  </span>
+                  <span className="mt-1.5 block text-sm leading-relaxed tracking-[0.02em] text-ink-muted transition-colors group-hover:text-brass-soft">
+                    {place.address}
+                  </span>
+                  <span className="mt-2 inline-flex items-center gap-1.5 text-[0.62rem] uppercase tracking-[0.16em] text-brass">
+                    Open in Maps
+                    <span aria-hidden>→</span>
+                  </span>
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       ) : null}

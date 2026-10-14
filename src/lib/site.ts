@@ -13,6 +13,25 @@ export const siteConfig = {
     address:
       "No 92-C, Lane 1, D.H.A. Phase 8 Zulfiqar & Al Murtaza Commercial Area, Phase 8 DHA, Karachi",
   },
+  locations: [
+    {
+      label: "DHA Phase 8",
+      address:
+        "No 92-C, Lane 1, D.H.A. Phase 8 Zulfiqar & Al Murtaza Commercial Area, Phase 8 DHA, Karachi",
+      mapUrl:
+        "https://www.google.com/maps/search/?api=1&query=No+92-C+Lane+1+Zulfiqar+%26+Al+Murtaza+Commercial+Area+DHA+Phase+8+Karachi",
+      embedUrl:
+        "https://maps.google.com/maps?q=No+92-C+Lane+1+Zulfiqar+Al+Murtaza+Commercial+Area+DHA+Phase+8+Karachi&z=16&output=embed",
+    },
+    {
+      label: "Clifton",
+      address: "Shop No.3/4 Parsa Classic, Block 9 Clifton, Karachi, 75600",
+      mapUrl:
+        "https://www.google.com/maps/search/?api=1&query=Shop+No.3%2F4+Parsa+Classic+Block+9+Clifton+Karachi+75600",
+      embedUrl:
+        "https://maps.google.com/maps?q=Shop+No.3%2F4+Parsa+Classic+Block+9+Clifton+Karachi+75600&z=16&output=embed",
+    },
+  ],
   tagline: "Beautiful light. Effortless control.",
   description:
     "Glow Home is a premium lighting store and showroom in Pakistan for chandeliers, pendant lights, ceiling lights, wall lights, LED downlights, spotlights, track lights, LED strips, floor lamps, table lamps, outdoor lights and smart lighting for homes, offices and commercial spaces.",
@@ -48,20 +67,6 @@ export const brands = [
     focus: "Decorative indoor lighting",
     summary:
       "Decorative indoor lighting for homes and boutique interiors, pendants, chandeliers, and ambient pieces with refined presence.",
-  },
-  {
-    slug: "lavov",
-    name: "LAVOV",
-    focus: "Advanced LED solutions",
-    summary:
-      "Advanced LED lighting solutions built for precision, efficiency, and modern architectural applications.",
-  },
-  {
-    slug: "artilux",
-    name: "ARTILUX",
-    focus: "Panel light solutions",
-    summary:
-      "Panel light solutions for clean ceilings and even illumination across commercial and contemporary interiors.",
   },
 ] as const;
 
@@ -787,12 +792,12 @@ export const faqs = [
   {
     question: "Where is the Glow Home lighting showroom?",
     answer:
-      "The Glow Home showroom is at No 92-C, Lane 1, Zulfiqar & Al Murtaza Commercial Area, DHA Phase 8, Karachi. The team also supports lighting projects across Pakistan, including Lahore and Islamabad.",
+      "Glow Home has showrooms at No 92-C, Lane 1, Zulfiqar & Al Murtaza Commercial Area, DHA Phase 8, Karachi, and Shop No.3/4 Parsa Classic, Block 9 Clifton, Karachi. Call +92 321 8208116. The team also supports lighting projects across Pakistan, including Lahore and Islamabad.",
   },
   {
     question: "Which lighting brands does Glow Home carry?",
     answer:
-      "Glow Home works with FIAM for commercial lighting, MACY for decorative indoor lighting, LAVOV for advanced LED solutions, and ARTILUX for panel light solutions.",
+      "Glow Home works with FIAM for commercial lighting and MACY for decorative indoor lighting.",
   },
   {
     question: "Does Glow Home provide commercial and office lighting?",

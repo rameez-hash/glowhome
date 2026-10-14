@@ -46,7 +46,7 @@ export function FAQ() {
                   Talk to our lighting team
                 </h3>
                 <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-muted">
-                  Visit the showroom in DHA Phase 8, Karachi, or call us for
+                  Visit us in DHA Phase 8 or Clifton, Karachi, or call us for
                   product guidance and project consultation.
                 </p>
 

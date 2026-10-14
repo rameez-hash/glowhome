@@ -6,19 +6,16 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Lighting Brands in Pakistan, FIAM, MACY, LAVOV & ARTILUX",
+  title: "Lighting Brands in Pakistan, FIAM & MACY",
   description:
-    "Glow Home brings FIAM commercial lighting, MACY decorative indoor lighting, LAVOV advanced LED lighting and ARTILUX LED panel lights to Pakistan.",
+    "Glow Home brings FIAM commercial lighting and MACY decorative indoor lighting to Pakistan.",
   path: "/brands",
   keywords: [
     "FIAM Lighting",
     "MACY Lighting",
-    "LAVOV Lighting",
-    "ARTILUX Panel Lights",
     "Commercial Lighting",
     "Decorative Lights",
     "LED Lighting",
-    "LED Panel Lights",
     "Lighting Store Pakistan",
   ],
 });
@@ -29,7 +26,7 @@ export default function BrandsPage() {
       <PageHero
         eyebrow="Brands"
         title="Lighting houses under one family"
-        description="Glow Home is a branded outlet of FIAM Lighting Pakistan, bringing FIAM, MACY, LAVOV, and ARTILUX into thoughtfully lit spaces."
+        description="Glow Home is a branded outlet of FIAM Lighting Pakistan, bringing FIAM and MACY into thoughtfully lit spaces."
       />
       <Brands showIntro={false} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Brands", path: "/brands" }])} />

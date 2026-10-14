@@ -83,6 +83,18 @@ export function organizationJsonLd() {
       addressRegion: "Sindh",
       addressCountry: "PK",
     },
+    location: siteConfig.locations.map((place) => ({
+      "@type": "Place",
+      name: `${siteConfig.name} ${place.label}`,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: place.address,
+        addressLocality: "Karachi",
+        addressRegion: "Sindh",
+        addressCountry: "PK",
+      },
+      hasMap: place.mapUrl,
+    })),
     areaServed: [
       { "@type": "Country", name: "Pakistan" },
       ...seoCities.map((city) => ({ "@type": "City", name: city })),
@@ -187,7 +199,7 @@ export function productCategoryFaqs(category: ProductCategory) {
   return [
     {
       question: `Where can I buy ${name} in Pakistan?`,
-      answer: `You can explore ${name} at the Glow Home lighting showroom in DHA Phase 8, Karachi, or contact the team by phone at ${siteConfig.phones[0]} for projects in Karachi, Lahore, Islamabad and other cities across Pakistan.`,
+      answer: `You can explore ${name} at Glow Home showrooms in DHA Phase 8 and Clifton, Karachi, or contact the team by phone at ${siteConfig.phones[0]} for projects in Karachi, Lahore, Islamabad and other cities across Pakistan.`,
     },
     {
       question: `How do I choose the right ${name} for my space?`,

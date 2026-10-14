@@ -80,7 +80,7 @@ export function Brands({ showIntro = true }: BrandsProps) {
               </h2>
               <p className="mt-5 max-w-lg text-sm leading-relaxed text-ink-muted md:text-base">
                 Glow Home is a branded outlet of FIAM Lighting Pakistan, bringing
-                FIAM, MACY, LAVOV, and ARTILUX into thoughtfully lit spaces.
+                FIAM and MACY into thoughtfully lit spaces.
               </p>
             </div>
             <Link
@@ -99,30 +99,30 @@ export function Brands({ showIntro = true }: BrandsProps) {
         ) : null}
 
         <div
-          className={`brands-grid grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 lg:grid-cols-4 ${
+          className={`brands-grid grid gap-px overflow-hidden border border-line bg-line md:grid-cols-2 ${
             showIntro ? "mt-12 md:mt-14" : ""
           }`}
         >
           {brands.map((brand, index) => (
             <article
               key={brand.slug}
-              className="brand-card group flex flex-col bg-bg-elevated p-6 transition-colors duration-300 hover:bg-bg-soft md:p-8"
+              className="brand-card group flex min-h-[18rem] flex-col bg-bg-elevated p-7 transition-colors duration-300 hover:bg-bg-soft sm:min-h-[20rem] md:p-10 lg:p-12"
             >
               <p className="font-[family-name:var(--font-display)] text-sm text-brass">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="mt-6 font-[family-name:var(--font-display)] text-[1.85rem] tracking-tight text-ink transition-colors group-hover:text-brass-soft md:text-3xl">
+              <h3 className="mt-8 font-[family-name:var(--font-display)] text-[2.25rem] tracking-tight text-ink transition-colors group-hover:text-brass-soft md:text-4xl lg:text-[2.75rem]">
                 {brand.name}
               </h3>
-              <p className="mt-2 text-[0.65rem] uppercase tracking-[0.18em] text-brass-soft">
+              <p className="mt-3 text-[0.65rem] uppercase tracking-[0.18em] text-brass-soft">
                 {brand.focus}
               </p>
-              <p className="mt-5 flex-1 text-sm leading-relaxed text-ink-muted">
+              <p className="mt-6 max-w-md flex-1 text-sm leading-relaxed text-ink-muted md:text-base">
                 {brand.summary}
               </p>
               <span
                 aria-hidden
-                className="mt-8 h-px w-10 origin-left bg-brass transition-all duration-500 group-hover:w-16"
+                className="mt-10 h-px w-10 origin-left bg-brass transition-all duration-500 group-hover:w-16"
               />
             </article>
           ))}

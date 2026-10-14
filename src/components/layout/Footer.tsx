@@ -101,10 +101,24 @@ export function Footer() {
                 <span>{siteConfig.email}</span>
               </a>
             </li>
-            <li className="flex max-w-xs items-start gap-3 leading-relaxed text-ink-dim">
-              <LocationIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brass" />
-              <span>{siteConfig.location.address}</span>
-            </li>
+            {siteConfig.locations.map((place) => (
+              <li key={place.label}>
+                <a
+                  href={place.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex max-w-xs items-start gap-3 leading-relaxed text-ink-dim transition-colors hover:text-brass-soft"
+                >
+                  <LocationIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brass transition-colors group-hover:text-brass-soft" />
+                  <span>
+                    <span className="block text-[0.62rem] uppercase tracking-[0.14em] text-brass-soft">
+                      {place.label}
+                    </span>
+                    <span className="mt-1 block">{place.address}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
           </ul>
 
           <Link href="/contact" className="btn mt-8">

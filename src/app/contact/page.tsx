@@ -6,9 +6,9 @@ import { keywordsFor } from "@/lib/keywords";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact Glow Home, Lighting Showroom in DHA Karachi",
+  title: "Contact Glow Home, Lighting Showrooms in DHA & Clifton Karachi",
   description:
-    "Visit the Glow Home lighting showroom in DHA Phase 8, Karachi, or call +92 321 8208116 for chandeliers, LED lights, outdoor lights and smart lighting across Pakistan.",
+    "Visit Glow Home in DHA Phase 8 or Shop No.3/4 Parsa Classic, Block 9 Clifton, Karachi. Call +92 321 8208116 for chandeliers, LED lights, outdoor lights and smart lighting across Pakistan.",
   path: "/contact",
   keywords: [
     ...keywordsFor("Lighting by City"),
