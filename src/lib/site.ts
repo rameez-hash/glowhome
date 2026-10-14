@@ -27,9 +27,9 @@ export const siteConfig = {
       label: "Clifton",
       address: "Shop No.3/4 Parsa Classic, Block 9 Clifton, Karachi, 75600",
       mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=Shop+No.3%2F4+Parsa+Classic+Block+9+Clifton+Karachi+75600",
+        "https://www.google.com/maps/place/Glow+Lights/@24.8265736,67.0427819,17z/data=!3m1!4b1!4m6!3m5!1s0x3eb33dfa68187a95:0xa75fe9c3b97a1e8d!8m2!3d24.8265736!4d67.0427819!16s%2Fg%2F11rjj09vwz",
       embedUrl:
-        "https://maps.google.com/maps?q=Shop+No.3%2F4+Parsa+Classic+Block+9+Clifton+Karachi+75600&z=16&output=embed",
+        "https://maps.google.com/maps?cid=12060615353961160333&z=16&output=embed",
     },
   ],
   tagline: "Beautiful light. Effortless control.",
