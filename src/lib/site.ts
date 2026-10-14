@@ -47,11 +47,15 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/solutions", label: "Solutions" },
-  { href: "/automation", label: "Automation" },
   { href: "/clients", label: "Client" },
   { href: "/brands", label: "Brand" },
   { href: "/products", label: "Products" },
   { href: "/contact", label: "Contact" },
+] as const;
+
+export const productNavItems = [
+  { href: "/products", label: "All products" },
+  { href: "/automation", label: "Automation", badge: "Coming soon" },
 ] as const;
 
 export const brands = [
