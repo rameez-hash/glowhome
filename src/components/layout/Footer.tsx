@@ -29,7 +29,7 @@ export function Footer() {
         aria-hidden
       />
 
-      <div className="container-site relative grid gap-14 py-16 lg:grid-cols-[1.35fr_1fr_1.1fr] lg:gap-16 lg:py-20">
+      <div className="container-site relative grid gap-12 py-16 md:gap-14 lg:grid-cols-[1.15fr_0.75fr_1.35fr] lg:gap-12 lg:py-20 xl:gap-16">
         <div>
           <Image
             src="/media/glow-home-brand-logo.png"
@@ -58,20 +58,15 @@ export function Footer() {
           <p className="text-xs uppercase tracking-[0.2em] text-brass-soft">
             Explore
           </p>
-          <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-3">
-            {[exploreLeft, exploreRight].map((column, colIndex) => (
-              <ul key={colIndex} className="space-y-3">
-                {column.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-ink-muted transition-colors hover:text-ink"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 lg:grid-cols-1 lg:gap-y-3.5">
+            {[...exploreLeft, ...exploreRight].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-ink-muted transition-colors hover:text-ink"
+              >
+                {link.label}
+              </Link>
             ))}
           </div>
         </div>
@@ -80,48 +75,52 @@ export function Footer() {
           <p className="text-xs uppercase tracking-[0.2em] text-brass-soft">
             Contact
           </p>
-          <ul className="mt-6 space-y-4 text-sm">
-            {siteConfig.phones.map((phone, i) => (
-              <li key={phone}>
-                <a
-                  href={`tel:${siteConfig.phoneRaw[i]}`}
-                  className="group flex items-start gap-3 text-base tracking-tight text-ink transition-colors hover:text-brass-soft"
-                >
-                  <PhoneIcon className="mt-1 h-3.5 w-3.5 shrink-0 text-brass transition-colors group-hover:text-brass-soft" />
-                  <span>{phone}</span>
-                </a>
-              </li>
-            ))}
-            <li>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="group flex items-start gap-3 text-ink-muted transition-colors hover:text-ink"
-              >
-                <MailIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brass transition-colors group-hover:text-brass-soft" />
-                <span>{siteConfig.email}</span>
-              </a>
-            </li>
-            {siteConfig.locations.map((place) => (
-              <li key={place.label}>
-                <a
-                  href={place.mapUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex max-w-xs items-start gap-3 leading-relaxed text-ink-dim transition-colors hover:text-brass-soft"
-                >
-                  <LocationIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brass transition-colors group-hover:text-brass-soft" />
-                  <span>
-                    <span className="block text-[0.62rem] uppercase tracking-[0.14em] text-brass-soft">
-                      {place.label}
-                    </span>
-                    <span className="mt-1 block">{place.address}</span>
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
 
-          <Link href="/contact" className="btn mt-8">
+          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+            {siteConfig.phones.map((phone, i) => (
+              <a
+                key={phone}
+                href={`tel:${siteConfig.phoneRaw[i]}`}
+                className="group inline-flex items-center gap-2.5 text-sm tracking-tight text-ink transition-colors hover:text-brass-soft"
+              >
+                <PhoneIcon className="h-3.5 w-3.5 shrink-0 text-brass transition-colors group-hover:text-brass-soft" />
+                <span>{phone}</span>
+              </a>
+            ))}
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="group inline-flex items-center gap-2.5 text-sm text-ink-muted transition-colors hover:text-ink"
+            >
+              <MailIcon className="h-3.5 w-3.5 shrink-0 text-brass transition-colors group-hover:text-brass-soft" />
+              <span>{siteConfig.email}</span>
+            </a>
+          </div>
+
+          <div className="mt-7 grid gap-3 sm:grid-cols-2">
+            {siteConfig.locations.map((place) => (
+              <a
+                key={place.label}
+                href={place.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col border border-line bg-bg/40 p-4 transition-colors hover:border-brass/40 hover:bg-bg"
+              >
+                <span className="flex items-center gap-2 text-[0.62rem] uppercase tracking-[0.16em] text-brass-soft">
+                  <LocationIcon className="h-3 w-3 text-brass" />
+                  {place.label}
+                </span>
+                <span className="mt-3 text-[0.8rem] leading-relaxed text-ink-muted transition-colors group-hover:text-ink">
+                  {place.address}
+                </span>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.16em] text-brass transition-all group-hover:gap-2.5">
+                  Open map
+                  <span aria-hidden>→</span>
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <Link href="/contact" className="btn mt-7 w-full sm:w-auto">
             Book a consultation
           </Link>
         </div>
