@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { PhoneIcon } from "@/components/ui/ContactDetails";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Smart Home Automation in Pakistan, Coming Soon",
@@ -103,13 +101,6 @@ export default function AutomationPage() {
               <Link href="/products" className="btn btn-ghost">
                 Browse lighting
               </Link>
-              <a
-                href={`tel:${siteConfig.phoneRaw[0]}`}
-                className="btn btn-ghost"
-              >
-                <PhoneIcon className="h-3.5 w-3.5 text-brass" />
-                {siteConfig.phones[0]}
-              </a>
             </div>
           </div>
 
