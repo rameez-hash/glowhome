@@ -27,6 +27,14 @@ const legacyPages: Record<string, readonly string[]> = {
     "commerciallights",
     "commercial-lights",
   ],
+  "/automation": [
+    "automation",
+    "home-automation",
+    "homeautomation",
+    "smart-home",
+    "smarthome",
+    "smart-automation",
+  ],
   "/products/decor": ["homedecor", "home-decor", "decor"],
   "/products/table-lamps": ["lamps", "tablelamp", "tablelamps", "table-lamps"],
   "/products/floor-lamps": ["floorlamp", "floorlamps", "floor-lamps"],
@@ -50,6 +58,7 @@ const existingRoutes = new Set([
   "/process",
   "/projects",
   "/brands",
+  "/automation",
 ]);
 
 export function legacyRedirects(): Redirect[] {

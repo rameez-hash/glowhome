@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...navLinks.filter((link) => link.href !== "/" && !link.href.includes("#")),
     { href: "/services" },
     { href: "/process" },
+    { href: "/automation" },
   ];
 
   return [

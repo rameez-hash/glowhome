@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -70,12 +71,27 @@ export function Services() {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <h3 className="font-[family-name:var(--font-display)] text-2xl tracking-tight transition-colors group-hover:text-brass-soft md:text-[1.7rem]">
-                {service.title}
+                {service.id === "smart-automation" ? (
+                  <Link href="/automation" className="hover:text-brass-soft">
+                    {service.title}
+                  </Link>
+                ) : (
+                  service.title
+                )}
               </h3>
               <div>
                 <p className="text-sm leading-relaxed text-ink-muted md:text-base">
                   {service.description}
                 </p>
+                {service.id === "smart-automation" ? (
+                  <Link
+                    href="/automation"
+                    className="mt-4 inline-flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.18em] text-brass transition-colors hover:text-brass-soft"
+                  >
+                    Coming soon
+                    <span aria-hidden>→</span>
+                  </Link>
+                ) : null}
                 <div className="service-line mt-5 h-px origin-left bg-line-strong" />
               </div>
             </article>

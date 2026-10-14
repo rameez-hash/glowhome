@@ -42,6 +42,7 @@ export function GET() {
     `- [About](${url("/about")})`,
     `- [Products](${url("/products")})`,
     `- [Solutions](${url("/solutions")})`,
+    `- [Automation](${url("/automation")}) (coming soon)`,
     `- [Brands](${url("/brands")})`,
     `- [Clients](${url("/clients")})`,
     `- [Contact](${url("/contact")})`,
