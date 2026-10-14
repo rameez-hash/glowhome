@@ -97,7 +97,7 @@ export function Header() {
             : "border-transparent bg-transparent shadow-none backdrop-blur-0"
         }`}
       >
-        <div className="container-site flex h-[var(--header-h)] items-center justify-between gap-6">
+        <div className="container-site flex h-[var(--header-h)] items-center gap-3 lg:gap-4 xl:gap-5">
           <Link
             href="/"
             aria-label={`${siteConfig.name} home`}
@@ -123,7 +123,7 @@ export function Header() {
           </Link>
 
           <nav
-            className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 xl:flex"
+            className="ml-auto hidden min-w-0 items-center justify-end gap-0.5 lg:flex xl:gap-1"
             aria-label="Primary"
           >
             {navLinks.map((link) => {
@@ -139,7 +139,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={(event) => onNavClick(event, link.href)}
-                  className={`group relative px-3 py-2 text-[0.68rem] font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${
+                  className={`group relative whitespace-nowrap px-1.5 py-2 text-[0.62rem] font-medium uppercase tracking-[0.12em] transition-colors duration-300 xl:px-2 xl:text-[0.66rem] xl:tracking-[0.14em] 2xl:px-2.5 2xl:tracking-[0.16em] ${
                     active
                       ? "text-brass-soft"
                       : solid
@@ -149,7 +149,7 @@ export function Header() {
                 >
                   {link.label}
                   <span
-                    className={`absolute inset-x-3 bottom-1 h-px origin-left bg-brass transition-transform duration-300 ease-[var(--ease-out)] ${
+                    className={`absolute inset-x-1.5 bottom-1 h-px origin-left bg-brass transition-transform duration-300 ease-[var(--ease-out)] xl:inset-x-2 ${
                       active
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
@@ -161,18 +161,18 @@ export function Header() {
             })}
           </nav>
 
-          <div className="hidden items-center gap-5 xl:flex">
+          <div className="hidden shrink-0 items-center gap-3 xl:flex 2xl:gap-4">
             <a
               href={`tel:${siteConfig.phoneRaw[0]}`}
-              className="group flex items-center gap-2.5 text-[0.7rem] tracking-[0.1em] text-ink-muted transition-colors hover:text-brass-soft"
+              className="group flex items-center gap-2 text-[0.65rem] tracking-[0.08em] text-ink-muted transition-colors hover:text-brass-soft 2xl:gap-2.5 2xl:text-[0.7rem]"
             >
               <PhoneIcon className="h-3.5 w-3.5 text-brass transition-colors group-hover:text-brass-soft" />
-              <span>{siteConfig.phones[0]}</span>
+              <span className="hidden 2xl:inline">{siteConfig.phones[0]}</span>
             </a>
 
             <Link
               href="/contact"
-              className="btn !min-h-10 !px-5 !text-[0.7rem] !tracking-[0.16em]"
+              className="btn !min-h-9 !px-4 !text-[0.65rem] !tracking-[0.14em] 2xl:!min-h-10 2xl:!px-5 2xl:!text-[0.7rem]"
             >
               Consult
             </Link>
@@ -180,7 +180,7 @@ export function Header() {
 
           <button
             type="button"
-            className="relative z-50 flex h-11 w-11 items-center justify-center border border-line transition-colors hover:border-brass xl:hidden"
+            className="relative z-50 ml-auto flex h-11 w-11 items-center justify-center border border-line transition-colors hover:border-brass lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -204,7 +204,7 @@ export function Header() {
 
       <div
         id="mobile-nav"
-        className={`fixed inset-0 top-[var(--header-h)] z-40 overflow-y-auto overscroll-contain bg-bg transition-[opacity,visibility] duration-400 xl:hidden ${
+        className={`fixed inset-0 top-[var(--header-h)] z-40 overflow-y-auto overscroll-contain bg-bg transition-[opacity,visibility] duration-400 lg:hidden ${
           open ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
