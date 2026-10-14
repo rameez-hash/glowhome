@@ -19,9 +19,9 @@ export const siteConfig = {
       address:
         "No 92-C, Lane 1, D.H.A. Phase 8 Zulfiqar & Al Murtaza Commercial Area, Phase 8 DHA, Karachi",
       mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=No+92-C+Lane+1+Zulfiqar+%26+Al+Murtaza+Commercial+Area+DHA+Phase+8+Karachi",
+        "https://www.google.com/maps/place/Glow+Home/data=!4m2!3m1!1s0x0:0xce3d438957dba788",
       embedUrl:
-        "https://maps.google.com/maps?q=No+92-C+Lane+1+Zulfiqar+Al+Murtaza+Commercial+Area+DHA+Phase+8+Karachi&z=16&output=embed",
+        "https://maps.google.com/maps?cid=14861108602556098440&z=16&output=embed",
     },
     {
       label: "Clifton",
