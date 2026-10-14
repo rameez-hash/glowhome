@@ -120,7 +120,7 @@ export function organizationJsonLd() {
       telephone: phone,
       contactType: "sales",
       areaServed: "PK",
-      availableLanguage: ["English", "Urdu"],
+      availableLanguage: ["English"],
     })),
   };
 }
