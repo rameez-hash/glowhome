@@ -59,6 +59,7 @@ const existingRoutes = new Set([
   "/projects",
   "/brands",
   "/automation",
+  "/blog",
 ]);
 
 export function legacyRedirects(): Redirect[] {

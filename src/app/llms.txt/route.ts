@@ -1,3 +1,4 @@
+import { blogPosts } from "@/lib/blog";
 import { categorySeo, keywordGroups, seoCities } from "@/lib/keywords";
 import { brands, faqs, productCategories, siteConfig } from "@/lib/site";
 
@@ -46,6 +47,14 @@ export function GET() {
     `- [Brands](${url("/brands")})`,
     `- [Clients](${url("/clients")})`,
     `- [Contact](${url("/contact")})`,
+    `- [Blog](${url("/blog")})`,
+    "",
+    "## Blog guides",
+    "",
+    ...blogPosts.map(
+      (post) =>
+        `- [${post.title}](${url(`/blog/${post.slug}`)}): ${post.excerpt} Focus keyword: ${post.focusKeyword}.`,
+    ),
     "",
     "## Frequently asked questions",
     "",

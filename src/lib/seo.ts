@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { categorySeo, coreCategoryStructure, seoCities } from "@/lib/keywords";
+import type { BlogPost } from "@/lib/blog";
 import {
   brands,
   faqs,
@@ -162,6 +163,34 @@ export function faqJsonLd(items: readonly { question: string; answer: string }[]
         text: faq.answer,
       },
     })),
+  };
+}
+
+export function articleJsonLd(post: BlogPost) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription,
+    image: [absolute(post.image)],
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt,
+    author: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: {
+        "@type": "ImageObject",
+        url: absolute("/media/glow-home-brand-logo.png"),
+      },
+    },
+    mainEntityOfPage: absolute(`/blog/${post.slug}`),
+    keywords: post.keywords.join(", "),
+    inLanguage: "en-PK",
   };
 }
 

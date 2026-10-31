@@ -68,6 +68,12 @@ export function Footer() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/blog"
+              className="text-sm text-ink-muted transition-colors hover:text-ink"
+            >
+              Blog
+            </Link>
           </div>
         </div>
 

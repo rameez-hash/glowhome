@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/lib/blog";
 import { clients, navLinks, productCategories, siteConfig } from "@/lib/site";
 
 const url = (path: string) => `${siteConfig.url}${path}`;
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: "/services" },
     { href: "/process" },
     { href: "/automation" },
+    { href: "/blog" },
   ];
 
   return [
@@ -29,6 +31,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: link.href === "/products" || link.href === "/contact" ? 0.9 : 0.8,
+    })),
+    ...blogPosts.map((post) => ({
+      url: url(`/blog/${post.slug}`),
+      lastModified: new Date(post.updatedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+      images: [url(post.image)],
     })),
     ...productCategories.map((category) => ({
       url: url(`/products/${category.slug}`),
