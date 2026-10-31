@@ -32,10 +32,12 @@ export function BestLedLightsGuide() {
         beyond.
       </p>
       <p>
-        At <ProductLink href="/">Glow Home</ProductLink>, we help clients choose
-        LED solutions that look refined and perform reliably, from recessed
-        downlights and ceiling lights to strips, panels, and decorative LED
-        fixtures.
+        At <ProductLink href="/">Glow Home</ProductLink>, a branded outlet of
+        FIAM Lighting Pakistan, we help clients choose LED solutions that look
+        refined and perform reliably. That includes{" "}
+        <strong className="font-medium text-ink">FIAM LED lights</strong> for
+        commercial and project use, alongside recessed downlights, ceiling
+        lights, strips, panels, and decorative LED fixtures.
       </p>
 
       <section className="space-y-5">
@@ -211,13 +213,33 @@ export function BestLedLightsGuide() {
 
       <section className="space-y-5">
         <h2 className="font-[family-name:var(--font-display)] text-[1.85rem] tracking-tight text-ink md:text-[2.15rem]">
+          FIAM LED Lights for Homes and Commercial Projects
+        </h2>
+        <p>
+          Glow Home carries{" "}
+          <ProductLink href="/brands">FIAM</ProductLink> commercial lighting,
+          including performance-led FIAM LED lights suited to offices, retail,
+          hospitality, and larger residential projects. FIAM fixtures are chosen
+          for clear specifications, reliable output, and a clean architectural
+          look.
+        </p>
+        <p>
+          Whether you need linear LED systems, project downlights, or commercial
+          luminaires, FIAM LED lighting helps create efficient spaces with a
+          professional finish. Our team can guide product selection for villas,
+          apartments, showrooms, and workplace interiors across Pakistan.
+        </p>
+      </section>
+
+      <section className="space-y-5">
+        <h2 className="font-[family-name:var(--font-display)] text-[1.85rem] tracking-tight text-ink md:text-[2.15rem]">
           Where to Buy Quality LED Lights in Pakistan
         </h2>
         <p>
           Glow Home offers curated LED and decorative lighting for residential
-          and commercial projects. Visit our showrooms in DHA Phase 8 and
-          Clifton, Karachi, or{" "}
-          <ProductLink href="/contact">contact the team</ProductLink> for
+          and commercial projects, including FIAM LED lights and complementary
+          collections. Visit our showrooms in DHA Phase 8 and Clifton, Karachi,
+          or <ProductLink href="/contact">contact the team</ProductLink> for
           product guidance and project consultation.
         </p>
         <p>
@@ -235,12 +257,12 @@ export function BestLedLightsGuide() {
         <p>
           The best LED lights in Pakistan are the ones that fit your space,
           support efficient operation, and look intentional in the room. With
-          the right mix of fixtures and expert guidance, every interior can feel
-          brighter, calmer, and more refined.
+          FIAM LED lighting options and expert guidance from Glow Home, every
+          interior can feel brighter, calmer, and more refined.
         </p>
         <p>
-          Explore Glow Home LED collections and book a consultation to choose
-          lighting that performs as well as it looks.
+          Explore Glow Home and FIAM LED collections, then book a consultation
+          to choose lighting that performs as well as it looks.
         </p>
       </section>
     </div>

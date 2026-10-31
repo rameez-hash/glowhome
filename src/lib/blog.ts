@@ -77,6 +77,8 @@ export const blogPosts = [
     keywords: [
       "Best LED Lights in Pakistan",
       "Pakistan best LED Lights",
+      "FIAM LED Lights",
+      "FIAM Lighting Pakistan",
       "LED Lights Pakistan",
       "LED Lights Price in Pakistan",
       "Buy LED Lights Pakistan",
@@ -87,7 +89,7 @@ export const blogPosts = [
     ],
     publishedAt: "2026-10-31",
     updatedAt: "2026-10-31",
-    readingMinutes: 7,
+    readingMinutes: 8,
     image: "/media/blog-best-led-lights-pakistan.jpg",
     imageAlt:
       "Modern hallway with recessed LED spotlights and warm cove lighting",
