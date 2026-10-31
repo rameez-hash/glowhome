@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,30 +12,47 @@ function HeroPanel({
   src,
   poster,
   title,
+  priority = false,
 }: {
   src: string;
   poster: string;
   title: string;
+  priority?: boolean;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const video = ref.current;
     if (!video) return;
-    void video.play().catch(() => undefined);
-  }, []);
+    const start = () => void video.play().catch(() => undefined);
+    if (priority) {
+      start();
+      return;
+    }
+    const mobile = window.matchMedia("(max-width: 767px)").matches;
+    if (mobile) return;
+    start();
+  }, [priority]);
 
   return (
     <div className="hero-panel relative h-full min-h-0 overflow-hidden">
       <div className="hero-media-inner absolute inset-[-6%]">
+        <Image
+          src={poster}
+          alt=""
+          fill
+          priority={priority}
+          sizes={priority ? "100vw" : "(min-width: 768px) 34vw, 100vw"}
+          className="object-cover"
+        />
         <video
           ref={ref}
-          className="h-full w-full object-cover"
+          className="relative h-full w-full object-cover"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload={priority ? "metadata" : "none"}
           poster={poster}
           aria-label={title}
         >
@@ -48,12 +65,26 @@ function HeroPanel({
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
+  const [wide, setWide] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const sync = () => setWide(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   useLayoutEffect(() => {
     const el = root.current;
     if (!el) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(max-width: 767px)").matches
+    ) {
+      return;
+    }
 
     const ctx = gsap.context(() => {
       /* ---------- intro reveal ---------- */
@@ -194,12 +225,13 @@ export function Hero() {
       aria-label="Glow Home hero"
     >
       <div className="absolute inset-0 z-0 grid grid-cols-1 md:grid-cols-3">
-        {heroVideos.map((video) => (
+        {(wide ? heroVideos : heroVideos.slice(0, 1)).map((video, index) => (
           <HeroPanel
             key={`${video.title}-${video.poster}`}
             src={video.src}
             poster={video.poster}
             title={video.title}
+            priority={index === 0}
           />
         ))}
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(14,14,12,0.6)_0%,rgba(14,14,12,0.4)_40%,rgba(14,14,12,0.82)_100%)]" />
