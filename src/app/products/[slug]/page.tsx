@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/layout/PageHero";
+import { ProductGallery } from "@/components/products/ProductGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { categorySeo } from "@/lib/keywords";
 import {
@@ -97,23 +98,7 @@ export default async function ProductCategoryPage({ params }: PageProps) {
           <p className="mb-5 text-[0.65rem] uppercase tracking-[0.2em] text-brass-soft">
             Gallery
           </p>
-          <div className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 md:gap-4 lg:mx-0 lg:grid lg:grid-cols-6 lg:gap-4 lg:overflow-visible lg:px-0 lg:pb-0">
-            {gallery.map((src, index) => (
-              <div
-                key={`${src}-${index}`}
-                className="relative aspect-[4/5] w-[68vw] max-w-[15rem] shrink-0 snap-start overflow-hidden bg-bg md:w-[30vw] lg:w-auto lg:max-w-none"
-              >
-                <Image
-                  src={src}
-                  alt={`${category.title} lighting gallery by Glow Home, view ${index + 1}`}
-                  fill
-                  loading={index < 3 ? "eager" : "lazy"}
-                  sizes="(max-width: 768px) 68vw, (max-width: 1024px) 30vw, 16vw"
-                  className="object-cover transition-transform duration-700 hover:scale-[1.03]"
-                />
-              </div>
-            ))}
-          </div>
+          <ProductGallery title={category.title} images={gallery} />
         </div>
       </section>
 

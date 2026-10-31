@@ -245,8 +245,10 @@ export const productCategories = [
     title: "Pendant Lights",
     summary:
       "Statement pendants for islands, dining tables, and feature zones, sculptural form with purposeful illumination.",
-    image: "/media/products/pendant-lights-kitchen-island.jpg",
+    image: "/media/products/pendant-lights-black-cylinder-dining.jpg",
     images: [
+      "/media/products/pendant-lights-black-cylinder-dining.jpg",
+      "/media/products/pendant-lights-glass-globe-kitchen.jpg",
       "/media/products/pendant-lights-kitchen-island.jpg",
       "/media/products/pendant-lights-dining-feature.jpg",
     ],
@@ -261,8 +263,10 @@ export const productCategories = [
     title: "Wall Lights",
     summary:
       "Sconces and wall fixtures that add depth, accent, and guidance along hallways, staircases, and feature walls.",
-    image: "/media/products/wall-lights-feature-accent.jpg",
+    image: "/media/products/wall-lights-gold-crystal-sconce.jpg",
     images: [
+      "/media/products/wall-lights-gold-crystal-sconce.jpg",
+      "/media/products/wall-lights-outdoor-updown-black.jpg",
       "/media/products/wall-lights-feature-accent.jpg",
       "/media/products/wall-lights-corridor-sconce.jpg",
     ],
@@ -293,8 +297,9 @@ export const productCategories = [
     title: "Floor Lamps",
     summary:
       "Freestanding floor lamps that shape lounge corners and reading nooks with portable, layered light.",
-    image: "/media/products/floor-lamps-reading-nook.jpg",
+    image: "/media/products/floor-lamps-brass-arc-living.jpg",
     images: [
+      "/media/products/floor-lamps-brass-arc-living.jpg",
       "/media/products/floor-lamps-reading-nook.jpg",
       "/media/products/floor-lamps-lounge-corner.jpg",
     ],
@@ -309,8 +314,10 @@ export const productCategories = [
     title: "Table Lamps",
     summary:
       "Table lamps for bedside, desks, and consoles, intimate glow that completes a room’s atmosphere.",
-    image: "/media/products/table-lamps-console-accent.jpg",
+    image: "/media/products/table-lamps-gold-mushroom-bedside.jpg",
     images: [
+      "/media/products/table-lamps-gold-mushroom-bedside.jpg",
+      "/media/products/table-lamps-crystal-drum-bedside.jpg",
       "/media/products/table-lamps-console-accent.jpg",
       "/media/products/table-lamps-bedside-glow.jpg",
     ],
@@ -451,6 +458,7 @@ export const productCategories = [
       "/media/products/decor-sphere-pendant-lounge.jpg",
       "/media/products/decor-office-led-panels.jpg",
       "/media/products/decor-garden-bollard-lights.jpg",
+      "/media/products/decor-living-recessed-cove.jpg",
     ],
     highlights: [
       "Accent décor for living and dining spaces, vessels, candles, and details that complete the room.",
@@ -482,9 +490,12 @@ const productGalleryFillers = [
   "/media/blog-home-lighting-ideas-living-dining.jpg",
 ] as const;
 
+/** Initial gallery rows × columns (3 × 3). Extra images load via Load More. */
+export const productGalleryPageSize = 9;
+
 export function getProductCategoryImages(
   category: ProductCategory,
-  count = 6,
+  minCount = productGalleryPageSize,
 ) {
   const seen = new Set<string>();
   const gallery: string[] = [];
@@ -495,14 +506,14 @@ export function getProductCategoryImages(
     gallery.push(src);
   }
 
-  // Categories with a full own gallery keep only their images.
-  if (gallery.length >= count) return gallery;
+  // Own gallery images always show in full; pad only thin categories.
+  if (gallery.length >= minCount) return gallery;
 
   for (const src of productGalleryFillers) {
     if (seen.has(src)) continue;
     seen.add(src);
     gallery.push(src);
-    if (gallery.length >= count) break;
+    if (gallery.length >= minCount) break;
   }
 
   return gallery;
