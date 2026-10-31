@@ -40,31 +40,41 @@ export function Contact() {
         aria-hidden
       />
 
-      <div className="container-site relative grid items-start gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
-        <Reveal>
-          <p className="eyebrow">Contact</p>
-          <h2 className="mt-4 display max-w-xl text-[clamp(2rem,5vw,3.4rem)]">
-            Let&apos;s design your smart living environment
-          </h2>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-ink-muted">
-            Tell us about your residence or commercial project. Our team will
-            guide consultation, product selection, and seamless integration.
-          </p>
-
-          <ContactDetails className="mt-10" showAddress />
-
-          <div className="mt-8">
-            <p className="mb-4 text-[0.65rem] uppercase tracking-[0.2em] text-brass-soft">
-              Follow
+      <div className="container-site relative grid items-stretch gap-10 lg:grid-cols-2 lg:gap-8 xl:gap-10">
+        <Reveal className="h-full">
+          <div className="flex h-full flex-col">
+            <p className="eyebrow">Contact</p>
+            <h2 className="mt-4 display max-w-xl text-[clamp(2rem,4.5vw,3.1rem)]">
+              Let&apos;s design your smart living environment
+            </h2>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-muted">
+              Tell us about your residence or commercial project. Our team will
+              guide consultation, product selection, and seamless integration
+              across lighting and smart control.
             </p>
-            <SocialLinks />
+
+            <ContactDetails className="mt-8" showAddress />
+
+            <div className="mt-4 flex flex-1 flex-col justify-end border border-line bg-bg/50 p-4 md:p-5">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-[0.65rem] uppercase tracking-[0.2em] text-brass-soft">
+                    Follow
+                  </p>
+                  <p className="mt-2 text-sm text-ink-muted">
+                    See recent projects and lighting ideas on social.
+                  </p>
+                </div>
+                <SocialLinks />
+              </div>
+            </div>
           </div>
         </Reveal>
 
-        <Reveal delay={0.1}>
-          <div className="relative border border-line-strong bg-bg p-6 md:p-9">
+        <Reveal delay={0.1} className="h-full">
+          <div className="relative flex h-full flex-col border border-line-strong bg-bg p-6 md:p-8">
             <div className="geo-frame" />
-            <div className="mb-8">
+            <div className="mb-7">
               <p className="text-xs uppercase tracking-[0.2em] text-brass-soft">
                 Consultation
               </p>
@@ -78,7 +88,7 @@ export function Contact() {
 
             <form
               onSubmit={onSubmit}
-              className="grid gap-5"
+              className="grid flex-1 content-start gap-5"
               aria-label="Consultation request"
             >
               <div className="grid gap-5 sm:grid-cols-2">
@@ -117,8 +127,8 @@ export function Contact() {
                 <textarea
                   required
                   name="message"
-                  rows={5}
-                  className="border border-line bg-transparent px-4 py-3 text-sm tracking-normal text-ink outline-none transition-colors placeholder:text-ink-dim/60 focus:border-brass"
+                  rows={6}
+                  className="min-h-[9rem] flex-1 border border-line bg-transparent px-4 py-3 text-sm tracking-normal text-ink outline-none transition-colors placeholder:text-ink-dim/60 focus:border-brass"
                   placeholder="Home type, rooms, lighting goals..."
                 />
               </label>
@@ -126,7 +136,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={sending}
-                className="btn mt-1 w-full disabled:cursor-wait disabled:opacity-60 sm:w-fit"
+                className="btn mt-auto w-full disabled:cursor-wait disabled:opacity-60"
               >
                 {sending ? "Sending..." : "Request Consultation"}
               </button>
