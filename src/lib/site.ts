@@ -428,8 +428,37 @@ export function getProductCategoryBySlug(slug: string) {
   return productCategories.find((category) => category.slug === slug);
 }
 
-export function getProductCategoryImages(category: ProductCategory) {
-  return [...category.images];
+/** Shared lifestyle frames used to keep every product gallery at six images. */
+const productGalleryFillers = [
+  "/media/glow-home-gallery-interior-lighting.jpg",
+  "/media/glow-home-elegant-interior-lighting.jpg",
+  "/media/glow-home-private-residence-lighting.jpg",
+  "/media/glow-home-solution-luxury-residence.jpg",
+  "/media/glow-home-premium-decorative-lighting.jpg",
+  "/media/glow-home-commercial-feature-lighting.jpg",
+  "/media/glow-home-solution-commercial-space.jpg",
+  "/media/glow-home-solution-office-workspace.jpg",
+  "/media/glow-home-curated-decor-lighting.jpg",
+  "/media/glow-home-architectural-material-lighting.jpg",
+  "/media/glow-home-ambient-smart-home-lighting.jpg",
+  "/media/blog-home-lighting-ideas-living-dining.jpg",
+] as const;
+
+export function getProductCategoryImages(
+  category: ProductCategory,
+  count = 6,
+) {
+  const seen = new Set<string>();
+  const gallery: string[] = [];
+
+  for (const src of [...category.images, ...productGalleryFillers]) {
+    if (seen.has(src)) continue;
+    seen.add(src);
+    gallery.push(src);
+    if (gallery.length >= count) break;
+  }
+
+  return gallery;
 }
 
 export const processSteps = [
