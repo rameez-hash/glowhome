@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Lora, Montserrat } from "next/font/google";
+import { SmoothScroll } from "@/components/animations/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${lora.variable} ${montserrat.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-bg text-ink antialiased">
+        <SmoothScroll />
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <div className="noise" aria-hidden />
         <Header />
