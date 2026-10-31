@@ -143,7 +143,7 @@ export const blogPosts = [
     readingMinutes: 8,
     image: "/media/blog-smart-switches-vs-traditional.jpg",
     imageAlt:
-      "Smart switches vs traditional switches comparison with touch panel app control and standard rocker switch",
+      "Smart switches vs traditional switches: touch panel with phone app on the left and manual rocker switch on the right",
   },
 ] as const satisfies readonly BlogPost[];
 
