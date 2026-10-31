@@ -7,6 +7,7 @@ import { BlogGuides } from "@/components/blog/BlogGuides";
 import { ChandelierSizeGuide } from "@/components/blog/ChandelierSizeGuide";
 import { HomeLightingGuide } from "@/components/blog/HomeLightingGuide";
 import { SmartHomeAutomationGuide } from "@/components/blog/SmartHomeAutomationGuide";
+import { SmartSwitchesGuide } from "@/components/blog/SmartSwitchesGuide";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { blogPosts, getBlogPost } from "@/lib/blog";
 import {
@@ -20,6 +21,7 @@ const guideBySlug = {
   "smart-home-automation-in-pakistan": SmartHomeAutomationGuide,
   "best-led-lights-in-pakistan": BestLedLightsGuide,
   "how-to-choose-right-chandelier-size": ChandelierSizeGuide,
+  "smart-switches-vs-traditional-switches": SmartSwitchesGuide,
 } as const;
 
 type Params = { slug: string };
@@ -126,7 +128,8 @@ export default async function BlogPostPage({
 
             <div className="mt-12 border-t border-line pt-10">
               <p className="font-[family-name:var(--font-display)] text-2xl tracking-tight text-ink md:text-3xl">
-                {slug === "smart-home-automation-in-pakistan"
+                {slug === "smart-home-automation-in-pakistan" ||
+                slug === "smart-switches-vs-traditional-switches"
                   ? "Ready for smarter living?"
                   : slug === "best-led-lights-in-pakistan"
                     ? "Ready to choose better LED lighting?"
@@ -137,16 +140,19 @@ export default async function BlogPostPage({
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-muted md:text-base">
                 {slug === "smart-home-automation-in-pakistan"
                   ? "Explore Glow Home lighting and automation options, or talk to our team about a solution for your home."
-                  : slug === "best-led-lights-in-pakistan"
-                    ? "Browse Glow Home LED collections or talk to our team about the right fixtures for your rooms."
-                    : slug === "how-to-choose-right-chandelier-size"
-                      ? "Browse Glow Home chandeliers or talk to our team about the right scale for your living room."
-                      : "Explore Glow Home collections or talk to our team about the right fixtures for every room in your home."}
+                  : slug === "smart-switches-vs-traditional-switches"
+                    ? "Talk to Glow Home about lighting control options, or explore automation for your home."
+                    : slug === "best-led-lights-in-pakistan"
+                      ? "Browse Glow Home LED collections or talk to our team about the right fixtures for your rooms."
+                      : slug === "how-to-choose-right-chandelier-size"
+                        ? "Browse Glow Home chandeliers or talk to our team about the right scale for your living room."
+                        : "Explore Glow Home collections or talk to our team about the right fixtures for every room in your home."}
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href={
-                    slug === "smart-home-automation-in-pakistan"
+                    slug === "smart-home-automation-in-pakistan" ||
+                    slug === "smart-switches-vs-traditional-switches"
                       ? "/automation"
                       : slug === "best-led-lights-in-pakistan"
                         ? "/products/led-strips"
@@ -156,7 +162,8 @@ export default async function BlogPostPage({
                   }
                   className="btn"
                 >
-                  {slug === "smart-home-automation-in-pakistan"
+                  {slug === "smart-home-automation-in-pakistan" ||
+                  slug === "smart-switches-vs-traditional-switches"
                     ? "View automation"
                     : slug === "best-led-lights-in-pakistan"
                       ? "Browse LED lights"

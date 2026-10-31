@@ -219,6 +219,10 @@ export function SmartHomeAutomationGuide() {
           <ProductLink href="/blog/best-led-lights-in-pakistan">
             best LED lights in Pakistan
           </ProductLink>
+          . For control hardware, compare{" "}
+          <ProductLink href="/blog/smart-switches-vs-traditional-switches">
+            smart switches vs traditional switches
+          </ProductLink>
           .
         </p>
       </section>

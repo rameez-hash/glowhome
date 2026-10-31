@@ -120,6 +120,31 @@ export const blogPosts = [
     imageAlt:
       "Large luxury crystal chandelier over a modern cream living room sofa with high ceilings and floor-to-ceiling windows",
   },
+  {
+    slug: "smart-switches-vs-traditional-switches",
+    title: "Smart Switches vs Traditional Switches: What's the Difference?",
+    excerpt:
+      "Compare smart switches and traditional switches, including features, convenience, energy efficiency, installation, and benefits for modern homes in Pakistan.",
+    metaTitle: "Smart Switches vs Traditional Switches | Glow Home",
+    metaDescription:
+      "Compare smart switches and traditional switches, including features, convenience, energy efficiency, installation, and benefits for modern homes in Pakistan.",
+    focusKeyword: "Smart Switches vs Traditional Switches",
+    keywords: [
+      "Smart Switches vs Traditional Switches",
+      "Smart Switches Pakistan",
+      "Traditional Light Switches",
+      "Smart Home Switches",
+      "Touch Panel Switches",
+      "Home Automation Switches",
+      "Smart Lighting Control Pakistan",
+    ],
+    publishedAt: "2026-10-31",
+    updatedAt: "2026-10-31",
+    readingMinutes: 8,
+    image: "/media/blog-smart-switches-vs-traditional.jpg",
+    imageAlt:
+      "Smart switches vs traditional switches comparison with touch panel app control and standard rocker switch",
+  },
 ] as const satisfies readonly BlogPost[];
 
 export type BlogSlug = (typeof blogPosts)[number]["slug"];
