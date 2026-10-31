@@ -80,8 +80,10 @@ export function Products() {
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
                   src={category.image}
-                  alt={`${category.title} by Glow Home`}
+                  alt={`${category.title} lighting by Glow Home Pakistan`}
                   fill
+                  loading="lazy"
+                  quality={75}
                   sizes="(max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                   className="object-cover transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.08]"
                 />

@@ -246,13 +246,15 @@ export function productGalleryImageAlt(
 ) {
   const file = src.split("/").pop()?.replace(/\.(jpe?g|webp|png)$/i, "") ?? "";
   const label = file.replace(/-/g, " ").trim();
-  return `${label || categoryTitle} by Glow Home Pakistan, ${categoryTitle} lighting gallery photo ${index + 1}`;
+  return `${label || categoryTitle}, luxury lighting and home décor by Glow Home Pakistan — ${categoryTitle} gallery ${index + 1}`;
 }
 
 export function productCategoryJsonLd(category: ProductCategory) {
   const seo = categorySeo[category.slug];
   const url = absolute(`/products/${category.slug}`);
-  const gallery = sharedProductGalleryImages.map((src) => absolute(src));
+  // Keep schema lean: hero + a few gallery stills (avoids repeating 40+ CDN URLs on every page).
+  const galleryStillPaths = sharedProductGalleryImages.slice(0, 6);
+  const primary = absolute(category.image);
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -269,7 +271,14 @@ export function productCategoryJsonLd(category: ProductCategory) {
       description: category.summary,
       brand: { "@type": "Brand", name: siteConfig.name },
       category: category.title,
-      image: absolute(category.image),
+      image: {
+        "@type": "ImageObject",
+        url: primary,
+        contentUrl: primary,
+        name: `${category.title} by Glow Home Pakistan`,
+        description: category.summary,
+        caption: `${category.title} lighting at Glow Home showrooms in Karachi`,
+      },
       offers: {
         "@type": "Offer",
         availability: "https://schema.org/InStoreOnly",
@@ -280,17 +289,31 @@ export function productCategoryJsonLd(category: ProductCategory) {
       },
     },
     provider: { "@id": orgId },
-    primaryImageOfPage: absolute(category.image),
-    image: gallery,
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: primary,
+      contentUrl: primary,
+      name: `${category.title} by Glow Home Pakistan`,
+      description: category.summary,
+    },
+    image: [
+      primary,
+      ...galleryStillPaths.map((src) => absolute(src)),
+    ],
     mainEntity: {
       "@type": "ItemList",
       name: `${category.title} lighting gallery`,
-      numberOfItems: gallery.length,
-      itemListElement: sharedProductGalleryImages.map((src, index) => ({
+      numberOfItems: galleryStillPaths.length,
+      itemListElement: galleryStillPaths.map((src, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: absolute(src),
-        name: productGalleryImageAlt(src, category.title, index),
+        item: {
+          "@type": "ImageObject",
+          contentUrl: absolute(src),
+          url: absolute(src),
+          name: productGalleryImageAlt(src, category.title, index),
+          description: productGalleryImageAlt(src, category.title, index),
+        },
       })),
     },
     speakable: {

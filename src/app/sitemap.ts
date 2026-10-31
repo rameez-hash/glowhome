@@ -1,6 +1,12 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog";
-import { clients, navLinks, productCategories, siteConfig } from "@/lib/site";
+import {
+  clients,
+  navLinks,
+  productCategories,
+  sharedProductGalleryImages,
+  siteConfig,
+} from "@/lib/site";
 
 const url = (path: string) => `${siteConfig.url}${path}`;
 
@@ -13,6 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: "/process" },
     { href: "/automation" },
     { href: "/blog" },
+  ];
+
+  // Image SEO without repeating the full gallery on every product URL (CDN + crawl budget).
+  const productsIndexImages = [
+    ...productCategories.slice(0, 4).map((category) => url(category.image)),
+    ...sharedProductGalleryImages.slice(0, 8).map((src) => url(src)),
   ];
 
   return [
@@ -31,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: link.href === "/products" || link.href === "/contact" ? 0.9 : 0.8,
+      ...(link.href === "/products" ? { images: productsIndexImages } : {}),
     })),
     ...blogPosts.map((post) => ({
       url: url(`/blog/${post.slug}`),
@@ -44,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly" as const,
       priority: 0.85,
-      images: category.images.map((src) => url(src)),
+      images: [url(category.image)],
     })),
     ...clients.map((client) => ({
       url: url(`/clients/${client.slug}`),

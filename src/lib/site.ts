@@ -457,8 +457,8 @@ export function getProductCategoryBySlug(slug: string) {
   return productCategories.find((category) => category.slug === slug);
 }
 
-/** Initial gallery rows × columns (3 × 4). Extra images load via Load More. */
-export const productGalleryPageSize = 12;
+/** Initial gallery rows × columns (2 × 4). Extra images load via Load More. */
+export const productGalleryPageSize = 8;
 
 /**
  * Shared gallery used on every product page — all curated lifestyle shots
