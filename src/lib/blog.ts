@@ -33,8 +33,8 @@ export const blogPosts = [
       "Bathroom Lighting",
       "Lighting Store Pakistan",
     ],
-    publishedAt: "2026-10-31",
-    updatedAt: "2026-10-31",
+    publishedAt: "2026-10-03",
+    updatedAt: "2026-10-03",
     readingMinutes: 8,
     image: "/media/blog-home-lighting-ideas-living-dining.jpg",
     imageAlt:
@@ -58,8 +58,8 @@ export const blogPosts = [
       "Smart Home Solutions Pakistan",
       "Intelligent Lighting",
     ],
-    publishedAt: "2026-10-31",
-    updatedAt: "2026-10-31",
+    publishedAt: "2026-10-10",
+    updatedAt: "2026-10-10",
     readingMinutes: 7,
     image: "/media/blog-smart-home-automation-pakistan.jpg",
     imageAlt:
@@ -87,8 +87,8 @@ export const blogPosts = [
       "LED Strip Lights",
       "LED Lighting Store Pakistan",
     ],
-    publishedAt: "2026-10-31",
-    updatedAt: "2026-10-31",
+    publishedAt: "2026-10-17",
+    updatedAt: "2026-10-17",
     readingMinutes: 8,
     image: "/media/blog-best-led-lights-pakistan.jpg",
     imageAlt:
@@ -113,8 +113,8 @@ export const blogPosts = [
       "Modern LED Chandeliers",
       "Buy Chandeliers Pakistan",
     ],
-    publishedAt: "2026-10-31",
-    updatedAt: "2026-10-31",
+    publishedAt: "2026-10-24",
+    updatedAt: "2026-10-24",
     readingMinutes: 7,
     image: "/media/blog-chandelier-size-living-room.jpg",
     imageAlt:
