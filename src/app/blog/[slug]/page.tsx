@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { HomeLightingGuide } from "@/components/blog/HomeLightingGuide";
+import { SmartHomeAutomationGuide } from "@/components/blog/SmartHomeAutomationGuide";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { blogPosts, getBlogPost } from "@/lib/blog";
 import {
@@ -10,6 +11,11 @@ import {
   breadcrumbJsonLd,
   pageMetadata,
 } from "@/lib/seo";
+
+const guideBySlug = {
+  "how-to-choose-perfect-home-lighting": HomeLightingGuide,
+  "smart-home-automation-in-pakistan": SmartHomeAutomationGuide,
+} as const;
 
 type Params = { slug: string };
 
@@ -73,11 +79,11 @@ export default async function BlogPostPage({
               Blog
             </Link>
             <span aria-hidden>/</span>
-            <span className="text-brass-soft">Home lighting ideas</span>
+            <span className="text-brass-soft">{post.focusKeyword}</span>
           </nav>
 
           <header className="mx-auto mt-8 max-w-3xl text-center md:mt-10">
-            <p className="eyebrow justify-center">Home Lighting Ideas</p>
+            <p className="eyebrow justify-center">{post.focusKeyword}</p>
             <h1 className="mt-5 display text-[clamp(2.1rem,5vw,3.75rem)]">
               {post.title}
             </h1>
@@ -107,21 +113,35 @@ export default async function BlogPostPage({
           </div>
 
           <div className="mx-auto mt-10 max-w-3xl md:mt-12">
-            {slug === "how-to-choose-perfect-home-lighting" ? (
-              <HomeLightingGuide />
-            ) : null}
+            {(() => {
+              const Guide =
+                guideBySlug[slug as keyof typeof guideBySlug] ?? null;
+              return Guide ? <Guide /> : null;
+            })()}
 
             <div className="mt-12 border-t border-line pt-10">
               <p className="font-[family-name:var(--font-display)] text-2xl tracking-tight text-ink md:text-3xl">
-                Ready to light your space?
+                {slug === "smart-home-automation-in-pakistan"
+                  ? "Ready for smarter living?"
+                  : "Ready to light your space?"}
               </p>
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-muted md:text-base">
-                Explore Glow Home collections or talk to our team about the
-                right fixtures for every room in your home.
+                {slug === "smart-home-automation-in-pakistan"
+                  ? "Explore Glow Home lighting and automation options, or talk to our team about a solution for your home."
+                  : "Explore Glow Home collections or talk to our team about the right fixtures for every room in your home."}
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link href="/products" className="btn">
-                  Browse products
+                <Link
+                  href={
+                    slug === "smart-home-automation-in-pakistan"
+                      ? "/automation"
+                      : "/products"
+                  }
+                  className="btn"
+                >
+                  {slug === "smart-home-automation-in-pakistan"
+                    ? "View automation"
+                    : "Browse products"}
                 </Link>
                 <Link href="/contact" className="btn btn-ghost">
                   Book consultation

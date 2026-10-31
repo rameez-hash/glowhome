@@ -40,6 +40,31 @@ export const blogPosts = [
     imageAlt:
       "Luxury living and dining room with chandelier, recessed lights, and layered home lighting",
   },
+  {
+    slug: "smart-home-automation-in-pakistan",
+    title: "Smart Home Automation in Pakistan: Benefits, Features & Solutions",
+    excerpt:
+      "Discover smart home automation in Pakistan, including intelligent lighting, smart switches, automated controls, and modern solutions for luxury homes.",
+    metaTitle: "Smart Home Automation in Pakistan | Glow Home",
+    metaDescription:
+      "Discover smart home automation in Pakistan, including intelligent lighting, smart switches, automated controls, and modern solutions for luxury homes.",
+    focusKeyword: "Smart Home Automation in Pakistan",
+    keywords: [
+      "Smart Home Automation in Pakistan",
+      "Smart Lighting Pakistan",
+      "Smart Switches",
+      "Home Automation Karachi",
+      "Automated Lighting Control",
+      "Smart Home Solutions Pakistan",
+      "Intelligent Lighting",
+    ],
+    publishedAt: "2026-10-31",
+    updatedAt: "2026-10-31",
+    readingMinutes: 7,
+    image: "/media/blog-smart-home-automation-pakistan.jpg",
+    imageAlt:
+      "Smart home app controlling living room lighting and scenes in a luxury Pakistani residence",
+  },
 ] as const satisfies readonly BlogPost[];
 
 export type BlogSlug = (typeof blogPosts)[number]["slug"];
