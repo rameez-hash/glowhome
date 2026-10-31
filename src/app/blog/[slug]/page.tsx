@@ -83,7 +83,7 @@ export default async function BlogPostPage({
             <span className="text-brass-soft">{post.focusKeyword}</span>
           </nav>
 
-          <header className="mx-auto mt-8 max-w-3xl text-center md:mt-10">
+          <header className="mx-auto mt-8 max-w-4xl text-center md:mt-10">
             <p className="eyebrow justify-center">{post.focusKeyword}</p>
             <h1 className="mt-5 display text-[clamp(2.1rem,5vw,3.75rem)]">
               {post.title}
@@ -100,7 +100,7 @@ export default async function BlogPostPage({
             </div>
           </header>
 
-          <div className="mx-auto mt-10 max-w-3xl overflow-hidden border border-line md:mt-12">
+          <div className="mx-auto mt-10 max-w-4xl overflow-hidden border border-line md:mt-12">
             <div className="relative aspect-[16/10]">
               <Image
                 src={post.image}
@@ -113,7 +113,7 @@ export default async function BlogPostPage({
             </div>
           </div>
 
-          <div className="mx-auto mt-10 max-w-3xl md:mt-12">
+          <div className="mx-auto mt-10 max-w-4xl md:mt-12">
             {(() => {
               const Guide =
                 guideBySlug[slug as keyof typeof guideBySlug] ?? null;
