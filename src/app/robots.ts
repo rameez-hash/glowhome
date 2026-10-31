@@ -18,6 +18,10 @@ const aiCrawlers = [
   "Amazonbot",
   "DuckAssistBot",
   "CCBot",
+  "Bytespider",
+  "Diffbot",
+  "FacebookBot",
+  "YouBot",
 ];
 
 export default function robots(): MetadataRoute.Robots {

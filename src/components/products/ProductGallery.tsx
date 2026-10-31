@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { productGalleryImageAlt } from "@/lib/seo";
 import { productGalleryPageSize } from "@/lib/site";
 
 type ProductGalleryProps = {
@@ -26,7 +27,7 @@ export function ProductGallery({ title, images }: ProductGalleryProps) {
           >
             <Image
               src={src}
-              alt={`${title} lighting gallery by Glow Home, view ${index + 1}`}
+              alt={productGalleryImageAlt(src, title, index)}
               fill
               loading={index < 4 ? "eager" : "lazy"}
               sizes="(max-width: 640px) 50vw, 25vw"

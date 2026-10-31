@@ -95,8 +95,14 @@ export default async function ProductCategoryPage({ params }: PageProps) {
 
       <section className="border-y border-line bg-bg-elevated py-8 md:py-10">
         <div className="container-site">
-          <p className="mb-5 text-[0.65rem] uppercase tracking-[0.2em] text-brass-soft">
+          <p className="mb-2 text-[0.65rem] uppercase tracking-[0.2em] text-brass-soft">
             Gallery
+          </p>
+          <p className="mb-5 max-w-3xl text-sm leading-relaxed text-ink-muted">
+            Lifestyle gallery for {category.title} at Glow Home Pakistan —
+            LED strips, magnetic track lighting, décor, pendants, lamps and
+            wall lights from our Karachi showrooms, with consultation for
+            projects nationwide.
           </p>
           <ProductGallery title={category.title} images={gallery} />
         </div>

@@ -6,6 +6,7 @@ import {
   faqs,
   productCategories,
   services,
+  sharedProductGalleryImages,
   siteConfig,
   type ProductCategory,
 } from "@/lib/site";
@@ -136,6 +137,7 @@ export function websiteJsonLd() {
     description: siteConfig.description,
     publisher: { "@id": orgId },
     inLanguage: "en-PK",
+    relatedLink: [`${siteConfig.url}/llms.txt`, `${siteConfig.url}/sitemap.xml`],
   };
 }
 
@@ -237,9 +239,20 @@ export function productCategoryFaqs(category: ProductCategory) {
   ];
 }
 
+export function productGalleryImageAlt(
+  src: string,
+  categoryTitle: string,
+  index: number,
+) {
+  const file = src.split("/").pop()?.replace(/\.(jpe?g|webp|png)$/i, "") ?? "";
+  const label = file.replace(/-/g, " ").trim();
+  return `${label || categoryTitle} by Glow Home Pakistan, ${categoryTitle} lighting gallery photo ${index + 1}`;
+}
+
 export function productCategoryJsonLd(category: ProductCategory) {
   const seo = categorySeo[category.slug];
   const url = absolute(`/products/${category.slug}`);
+  const gallery = sharedProductGalleryImages.map((src) => absolute(src));
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -248,10 +261,41 @@ export function productCategoryJsonLd(category: ProductCategory) {
     name: seo?.title ?? category.title,
     description: seo?.description ?? category.summary,
     keywords: seo?.keywords.join(", "),
+    inLanguage: "en",
     isPartOf: { "@id": websiteId },
-    about: { "@type": "Thing", name: category.title },
+    about: {
+      "@type": "Product",
+      name: category.title,
+      description: category.summary,
+      brand: { "@type": "Brand", name: siteConfig.name },
+      category: category.title,
+      image: absolute(category.image),
+      offers: {
+        "@type": "Offer",
+        availability: "https://schema.org/InStoreOnly",
+        priceCurrency: "PKR",
+        url,
+        seller: { "@id": orgId },
+        areaServed: "Pakistan",
+      },
+    },
     provider: { "@id": orgId },
     primaryImageOfPage: absolute(category.image),
-    image: category.images.map((src) => absolute(src)),
+    image: gallery,
+    mainEntity: {
+      "@type": "ItemList",
+      name: `${category.title} lighting gallery`,
+      numberOfItems: gallery.length,
+      itemListElement: sharedProductGalleryImages.map((src, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: absolute(src),
+        name: productGalleryImageAlt(src, category.title, index),
+      })),
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".eyebrow", "section p"],
+    },
   };
 }
