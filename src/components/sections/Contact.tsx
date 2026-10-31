@@ -9,7 +9,11 @@ import { SocialLinks } from "@/components/ui/SocialLinks";
 import { submitInquiry } from "@/lib/inquiry";
 import { siteConfig } from "@/lib/site";
 
-export function Contact() {
+type ContactProps = {
+  showShowrooms?: boolean;
+};
+
+export function Contact({ showShowrooms = true }: ContactProps) {
   const router = useRouter();
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
@@ -150,59 +154,61 @@ export function Contact() {
         </Reveal>
       </div>
 
-      <div className="container-site relative mt-14 md:mt-16">
-        <Reveal>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="eyebrow">Showrooms</p>
-              <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl tracking-tight md:text-3xl">
-                Find us in Karachi
-              </h3>
-            </div>
-            <p className="max-w-md text-sm leading-relaxed text-ink-muted">
-              Tap an address to open Google Maps. Visit DHA Phase 8 or Clifton,
-              or call {siteConfig.phones[0]}.
-            </p>
-          </div>
-        </Reveal>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-2 md:items-stretch md:gap-5">
-          {siteConfig.locations.map((place, index) => (
-            <Reveal key={place.label} delay={index * 0.08} className="h-full">
-              <div className="flex h-full flex-col overflow-hidden border border-line bg-bg">
-                <div className="relative aspect-[16/10] shrink-0 bg-bg-elevated">
-                  <iframe
-                    title={`Map of Glow Home ${place.label}`}
-                    src={place.embedUrl}
-                    className="absolute inset-0 h-full w-full border-0"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    allowFullScreen
-                  />
-                </div>
-                <a
-                  href={place.mapUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex min-h-[8.5rem] flex-1 flex-col border-t border-line p-5 transition-colors hover:bg-bg-elevated sm:min-h-[9rem]"
-                >
-                  <span className="flex items-center justify-between gap-4">
-                    <span className="text-[0.65rem] uppercase tracking-[0.18em] text-brass-soft">
-                      {place.label}
-                    </span>
-                    <span className="shrink-0 text-[0.62rem] uppercase tracking-[0.16em] text-brass transition-transform group-hover:translate-x-0.5">
-                      Maps →
-                    </span>
-                  </span>
-                  <span className="mt-3 flex-1 text-sm leading-relaxed text-ink-muted transition-colors group-hover:text-ink">
-                    {place.address}
-                  </span>
-                </a>
+      {showShowrooms ? (
+        <div className="container-site relative mt-14 md:mt-16">
+          <Reveal>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="eyebrow">Showrooms</p>
+                <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl tracking-tight md:text-3xl">
+                  Find us in Karachi
+                </h3>
               </div>
-            </Reveal>
-          ))}
+              <p className="max-w-md text-sm leading-relaxed text-ink-muted">
+                Tap an address to open Google Maps. Visit DHA Phase 8 or
+                Clifton, or call {siteConfig.phones[0]}.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 md:items-stretch md:gap-5">
+            {siteConfig.locations.map((place, index) => (
+              <Reveal key={place.label} delay={index * 0.08} className="h-full">
+                <div className="flex h-full flex-col overflow-hidden border border-line bg-bg">
+                  <div className="relative aspect-[16/10] shrink-0 bg-bg-elevated">
+                    <iframe
+                      title={`Map of Glow Home ${place.label}`}
+                      src={place.embedUrl}
+                      className="absolute inset-0 h-full w-full border-0"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      allowFullScreen
+                    />
+                  </div>
+                  <a
+                    href={place.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex min-h-[8.5rem] flex-1 flex-col border-t border-line p-5 transition-colors hover:bg-bg-elevated sm:min-h-[9rem]"
+                  >
+                    <span className="flex items-center justify-between gap-4">
+                      <span className="text-[0.65rem] uppercase tracking-[0.18em] text-brass-soft">
+                        {place.label}
+                      </span>
+                      <span className="shrink-0 text-[0.62rem] uppercase tracking-[0.16em] text-brass transition-transform group-hover:translate-x-0.5">
+                        Maps →
+                      </span>
+                    </span>
+                    <span className="mt-3 flex-1 text-sm leading-relaxed text-ink-muted transition-colors group-hover:text-ink">
+                      {place.address}
+                    </span>
+                  </a>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
-      </div>
+      ) : null}
     </section>
   );
 }

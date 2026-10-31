@@ -42,7 +42,7 @@ export default function HomePage() {
       <Clients />
       <BlogGuides />
       <FAQ />
-      <Contact />
+      <Contact showShowrooms={false} />
       <JsonLd data={[faqJsonLd(), productListJsonLd(), ...serviceJsonLd()]} />
     </>
   );
