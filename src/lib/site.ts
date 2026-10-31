@@ -228,11 +228,11 @@ export const productCategories = [
     title: "Ceiling Lights",
     summary:
       "Flush and semi-flush ceiling fixtures that deliver clean ambient light for bedrooms, corridors, and everyday living spaces.",
-    image: "/media/products/ceiling-lights-v3.jpg",
+    image: "/media/products/ceiling-lights-living-recessed.jpg",
     images: [
-      "/media/products/ceiling-lights-v3.jpg",
-      "/media/products/ceiling-lights-v2.jpg",
-      "/media/products/ceiling-lights.jpg",
+      "/media/products/ceiling-lights-living-recessed.jpg",
+      "/media/products/ceiling-lights-bedroom-ambient.jpg",
+      "/media/products/ceiling-lights-flush-modern.jpg",
     ],
     highlights: [
       "Soft ambient coverage that keeps bedrooms, corridors, and living areas evenly lit for everyday comfort.",
@@ -245,10 +245,10 @@ export const productCategories = [
     title: "Pendant Lights",
     summary:
       "Statement pendants for islands, dining tables, and feature zones, sculptural form with purposeful illumination.",
-    image: "/media/products/pendant-lights-v2.jpg",
+    image: "/media/products/pendant-lights-kitchen-island.jpg",
     images: [
-      "/media/products/pendant-lights-v2.jpg",
-      "/media/products/pendant-lights.jpg",
+      "/media/products/pendant-lights-kitchen-island.jpg",
+      "/media/products/pendant-lights-dining-feature.jpg",
     ],
     highlights: [
       "Creates a clear focal point above dining tables, kitchen islands, and feature seating zones.",
@@ -261,10 +261,10 @@ export const productCategories = [
     title: "Wall Lights",
     summary:
       "Sconces and wall fixtures that add depth, accent, and guidance along hallways, staircases, and feature walls.",
-    image: "/media/products/wall-lights-v2.jpg",
+    image: "/media/products/wall-lights-feature-accent.jpg",
     images: [
-      "/media/products/wall-lights-v2.jpg",
-      "/media/products/wall-lights.jpg",
+      "/media/products/wall-lights-feature-accent.jpg",
+      "/media/products/wall-lights-corridor-sconce.jpg",
     ],
     highlights: [
       "Adds accent and pathway light along corridors, stairs, and feature walls with quiet presence.",
@@ -277,10 +277,10 @@ export const productCategories = [
     title: "Ceiling Spotlights",
     summary:
       "Directed ceiling spots for art, shelving, and task zones, precise beams with architectural clarity.",
-    image: "/media/products/ceiling-spotlights-v2.jpg",
+    image: "/media/products/ceiling-spotlights-task-beam.jpg",
     images: [
-      "/media/products/ceiling-spotlights-v2.jpg",
-      "/media/products/ceiling-spotlights.jpg",
+      "/media/products/ceiling-spotlights-task-beam.jpg",
+      "/media/products/ceiling-spotlights-art-display.jpg",
     ],
     highlights: [
       "Adjustable beams highlight art, shelving, and display moments with precise control.",
@@ -293,10 +293,10 @@ export const productCategories = [
     title: "Floor Lamps",
     summary:
       "Freestanding floor lamps that shape lounge corners and reading nooks with portable, layered light.",
-    image: "/media/products/floor-lamps-v2.jpg",
+    image: "/media/products/floor-lamps-reading-nook.jpg",
     images: [
-      "/media/products/floor-lamps-v2.jpg",
-      "/media/products/floor-lamps.jpg",
+      "/media/products/floor-lamps-reading-nook.jpg",
+      "/media/products/floor-lamps-lounge-corner.jpg",
     ],
     highlights: [
       "Flexible lounge and reading light you can place where the room needs warmth and focus.",
@@ -309,10 +309,10 @@ export const productCategories = [
     title: "Table Lamps",
     summary:
       "Table lamps for bedside, desks, and consoles, intimate glow that completes a room’s atmosphere.",
-    image: "/media/products/table-lamps-v2.jpg",
+    image: "/media/products/table-lamps-console-accent.jpg",
     images: [
-      "/media/products/table-lamps-v2.jpg",
-      "/media/products/table-lamps.jpg",
+      "/media/products/table-lamps-console-accent.jpg",
+      "/media/products/table-lamps-bedside-glow.jpg",
     ],
     highlights: [
       "Intimate glow for bedside tables, desks, and consoles where soft local light matters most.",
@@ -325,10 +325,10 @@ export const productCategories = [
     title: "Chandeliers",
     summary:
       "Statement chandeliers for double-height foyers, dining halls, and luxury residences, presence with polish.",
-    image: "/media/products/chandeliers-v2.jpg",
+    image: "/media/products/chandeliers-dining-crystal.jpg",
     images: [
-      "/media/products/chandeliers-v2.jpg",
-      "/media/products/chandeliers.jpg",
+      "/media/products/chandeliers-dining-crystal.jpg",
+      "/media/products/chandeliers-foyer-statement.jpg",
     ],
     highlights: [
       "Hero pieces designed for double-height foyers, dining halls, and luxury residences.",
@@ -341,10 +341,10 @@ export const productCategories = [
     title: "Downlights",
     summary:
       "Recessed downlights for seamless ceilings, even coverage with a refined, minimal architectural look.",
-    image: "/media/products/downlights-v2.jpg",
+    image: "/media/products/downlights-minimal-grid.jpg",
     images: [
-      "/media/products/downlights-v2.jpg",
-      "/media/products/downlights.jpg",
+      "/media/products/downlights-minimal-grid.jpg",
+      "/media/products/downlights-recessed-ceiling.jpg",
     ],
     highlights: [
       "Recessed sources stay visually quiet while delivering refined, high-quality illumination.",
@@ -357,7 +357,7 @@ export const productCategories = [
     title: "Track Lighting",
     summary:
       "Track systems for galleries, retail, and flexible interiors, aimable heads that adapt as spaces change.",
-    image: "/media/products/track-lighting-v2.jpg",
+    image: "/media/products/track-lighting-kitchen-magnetic-pendants.jpg",
     images: [
       "/media/products/track-lighting-bedroom-magnetic.jpg",
       "/media/products/track-lighting-living-linear.jpg",
@@ -367,6 +367,7 @@ export const productCategories = [
       "/media/products/track-lighting-living-recessed.jpg",
       "/media/products/track-lighting-kitchen-spots.jpg",
       "/media/products/track-lighting-kitchen-island.jpg",
+      "/media/products/track-lighting-kitchen-magnetic-pendants.jpg",
       "/media/products/track-lighting-dining-pendants.jpg",
       "/media/products/track-lighting-hallway-art.jpg",
       "/media/products/track-lighting-art-gallery.jpg",
@@ -374,8 +375,7 @@ export const productCategories = [
       "/media/products/track-lighting-restaurant.jpg",
       "/media/products/track-lighting-showroom-cars.jpg",
       "/media/products/track-lighting-conference-room.jpg",
-      "/media/products/track-lighting-v2.jpg",
-      "/media/products/track-lighting.jpg",
+      "/media/products/track-lighting-office-corridor.jpg",
     ],
     highlights: [
       "Aimable heads adapt easily for galleries, retail displays, and changing interior layouts.",
@@ -388,10 +388,10 @@ export const productCategories = [
     title: "Lamp Shades",
     summary:
       "Curated shades that soften glare and refine fixture character, texture, tone, and proportion considered.",
-    image: "/media/products/lamp-shades-v2.jpg",
+    image: "/media/products/lamp-shades-textured-drum.jpg",
     images: [
-      "/media/products/lamp-shades-v2.jpg",
-      "/media/products/lamp-shades.jpg",
+      "/media/products/lamp-shades-textured-drum.jpg",
+      "/media/products/lamp-shades-fabric-diffusion.jpg",
     ],
     highlights: [
       "Soft diffusion that reduces glare and makes lamp light more comfortable for evening use.",
@@ -404,7 +404,7 @@ export const productCategories = [
     title: "LED Strips",
     summary:
       "Linear LED strips for coves, niches, stairs, and under-cabinet glow, continuous light with smart control.",
-    image: "/media/products/led-strips-v2.jpg",
+    image: "/media/products/led-strips-shelves.jpg",
     images: [
       "/media/products/led-strips-shelves.jpg",
       "/media/products/led-strips-kitchen.jpg",
@@ -416,8 +416,7 @@ export const productCategories = [
       "/media/products/led-strips-exterior-villa.jpg",
       "/media/products/led-strips-profile-living.jpg",
       "/media/products/led-strips-rgb-bedroom.jpg",
-      "/media/products/led-strips-v2.jpg",
-      "/media/products/led-strips.jpg",
+      "/media/products/led-strips-living-linear-cove.jpg",
     ],
     highlights: [
       "Continuous lines for coves, niches, stairs, and under-cabinet glow with refined detailing.",
@@ -430,7 +429,7 @@ export const productCategories = [
     title: "Decor",
     summary:
       "Elevate your space with pieces that make every corner feel special, curated décor accents styled with light.",
-    image: "/media/products/decor.jpg",
+    image: "/media/products/decor-organic-gold-mirror.jpg",
     images: [
       "/media/products/decor-organic-gold-mirror.jpg",
       "/media/products/decor-arched-window-mirror.jpg",
@@ -446,12 +445,12 @@ export const productCategories = [
       "/media/products/decor-brass-hourglass.jpg",
       "/media/products/decor-gold-candle-rings.jpg",
       "/media/products/decor-marble-bookends.jpg",
-      "/media/products/decor-01.jpg",
-      "/media/products/decor-02.jpg",
-      "/media/products/decor-03.jpg",
-      "/media/products/decor-04.jpg",
-      "/media/products/decor-05.jpg",
-      "/media/products/decor-06.jpg",
+      "/media/products/decor-console-candle-styling.jpg",
+      "/media/products/decor-living-sconces-cove.jpg",
+      "/media/products/decor-living-linear-ceiling.jpg",
+      "/media/products/decor-sphere-pendant-lounge.jpg",
+      "/media/products/decor-office-led-panels.jpg",
+      "/media/products/decor-garden-bollard-lights.jpg",
     ],
     highlights: [
       "Accent décor for living and dining spaces, vessels, candles, and details that complete the room.",
