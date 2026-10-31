@@ -169,31 +169,56 @@ export function faqJsonLd(items: readonly { question: string; answer: string }[]
 }
 
 export function articleJsonLd(post: BlogPost) {
+  const pageUrl = absolute(`/blog/${post.slug}`);
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${pageUrl}#article`,
     headline: post.title,
     description: post.metaDescription,
-    image: [absolute(post.image)],
+    url: pageUrl,
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+    image: {
+      "@type": "ImageObject",
+      url: absolute(post.image),
+      contentUrl: absolute(post.image),
+      caption: post.imageAlt,
+    },
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     author: {
       "@type": "Organization",
+      "@id": orgId,
       name: siteConfig.name,
       url: siteConfig.url,
     },
     publisher: {
       "@type": "Organization",
+      "@id": orgId,
       name: siteConfig.name,
       logo: {
         "@type": "ImageObject",
         url: absolute("/media/glow-home-brand-logo.png"),
       },
     },
-    mainEntityOfPage: absolute(`/blog/${post.slug}`),
     keywords: post.keywords.join(", "),
+    articleSection: "Lighting",
     inLanguage: "en-PK",
+    isAccessibleForFree: true,
   };
+}
+
+export function blogPostFaqs(post: BlogPost) {
+  return [
+    {
+      question: post.title.endsWith("?") ? post.title : `What should I know about ${post.focusKeyword}?`,
+      answer: post.excerpt,
+    },
+    {
+      question: `Where can I get advice on ${post.focusKeyword} in Pakistan?`,
+      answer: `Glow Home showrooms in DHA Phase 8 and Clifton, Karachi help with ${post.focusKeyword.toLowerCase()} for homes and projects across Pakistan. Call ${siteConfig.phones[0]} or use the contact form.`,
+    },
+  ];
 }
 
 export function breadcrumbJsonLd(items: readonly { name: string; path: string }[]) {

@@ -12,7 +12,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { blogPosts, getBlogPost } from "@/lib/blog";
 import {
   articleJsonLd,
+  blogPostFaqs,
   breadcrumbJsonLd,
+  faqJsonLd,
   pageMetadata,
 } from "@/lib/seo";
 
@@ -112,9 +114,10 @@ export default async function BlogPostPage({
                 src={post.image}
                 alt={post.imageAlt}
                 fill
-                sizes="(max-width: 768px) 100vw, 768px"
+                priority
+                quality={75}
+                sizes="(max-width: 896px) 100vw, 896px"
                 className="object-cover"
-                loading="eager"
               />
             </div>
           </div>
@@ -194,6 +197,7 @@ export default async function BlogPostPage({
             { name: post.title, path: `/blog/${post.slug}` },
           ]),
           articleJsonLd(post),
+          faqJsonLd(blogPostFaqs(post)),
         ]}
       />
     </>

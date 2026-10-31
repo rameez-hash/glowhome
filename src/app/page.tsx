@@ -15,14 +15,14 @@ import { BlogGuides } from "@/components/blog/BlogGuides";
 import { BrandMarquee } from "@/components/ui/BrandMarquee";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqJsonLd, productListJsonLd, serviceJsonLd } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
     absolute:
       "Glow Home | Lighting Store in Pakistan, Chandeliers, LED & Smart Lights",
   },
-  description: siteConfig.description,
+  description:
+    "Premium lighting store in Karachi for chandeliers, LED lights, track lights, LED strips and smart lighting. Showrooms in DHA Phase 8 and Clifton.",
   alternates: { canonical: "/" },
 };
 

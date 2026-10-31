@@ -21,7 +21,7 @@ export const blogPosts = [
       "Discover the best home lighting ideas for living rooms, bedrooms, kitchens, bathrooms, and dining areas with Glow Home.",
     metaTitle: "How to Choose Perfect Home Lighting | Glow Home",
     metaDescription:
-      "Discover the best lighting ideas for living rooms, bedrooms, kitchens, bathrooms, and dining areas. Create a stylish and comfortable home with Glow Home",
+      "Discover home lighting ideas for living rooms, bedrooms, kitchens and dining areas. Practical tips from Glow Home, Karachi.",
     focusKeyword: "Home Lighting Ideas",
     keywords: [
       "Home Lighting Ideas",

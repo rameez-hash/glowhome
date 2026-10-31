@@ -32,7 +32,7 @@ export default function BlogIndexPage() {
 
       <section className="section bg-bg">
         <div className="container-site grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <article
               key={post.slug}
               className="group flex flex-col overflow-hidden border border-line bg-bg-elevated"
@@ -45,6 +45,8 @@ export default function BlogIndexPage() {
                   src={post.image}
                   alt={post.imageAlt}
                   fill
+                  quality={70}
+                  loading={index === 0 ? "eager" : "lazy"}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
