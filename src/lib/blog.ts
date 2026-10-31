@@ -92,7 +92,7 @@ export const blogPosts = [
     readingMinutes: 8,
     image: "/media/blog-best-led-lights-pakistan.jpg",
     imageAlt:
-      "Modern hallway with recessed LED spotlights and warm cove lighting",
+      "Luxury modern villa in Pakistan at night with warm white exterior LED strip lighting and recessed entrance spotlights",
   },
 ] as const satisfies readonly BlogPost[];
 
