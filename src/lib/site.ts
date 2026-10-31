@@ -393,6 +393,8 @@ export const productCategories = [
     images: [
       "/media/products/led-strips-v2.jpg",
       "/media/products/led-strips.jpg",
+      "/media/products/led-strips-profile-living.jpg",
+      "/media/products/led-strips-rgb-bedroom.jpg",
     ],
     highlights: [
       "Continuous lines for coves, niches, stairs, and under-cabinet glow with refined detailing.",
@@ -434,6 +436,8 @@ const productGalleryFillers = [
   "/media/glow-home-elegant-interior-lighting.jpg",
   "/media/glow-home-private-residence-lighting.jpg",
   "/media/glow-home-solution-luxury-residence.jpg",
+  "/media/products/led-strips-profile-living.jpg",
+  "/media/products/led-strips-rgb-bedroom.jpg",
   "/media/glow-home-premium-decorative-lighting.jpg",
   "/media/glow-home-commercial-feature-lighting.jpg",
   "/media/glow-home-solution-commercial-space.jpg",
