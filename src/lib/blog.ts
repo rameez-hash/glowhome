@@ -94,6 +94,32 @@ export const blogPosts = [
     imageAlt:
       "Luxury modern villa in Pakistan at night with warm white exterior LED strip lighting and recessed entrance spotlights",
   },
+  {
+    slug: "how-to-choose-right-chandelier-size",
+    title: "How to Choose the Right Chandelier Size for Your Living Room",
+    excerpt:
+      "Learn how to choose the perfect chandelier size for your living room with tips on diameter, ceiling height, placement, and luxury lighting design.",
+    metaTitle: "How to Choose the Right Chandelier Size | Glow Home",
+    metaDescription:
+      "Learn how to choose the perfect chandelier size for your living room with tips on diameter, ceiling height, placement, and luxury lighting design.",
+    focusKeyword: "Chandelier Size for Living Room",
+    keywords: [
+      "Chandelier Size for Living Room",
+      "How to Choose Chandelier Size",
+      "Living Room Chandelier",
+      "Chandelier Diameter Guide",
+      "Ceiling Height Chandelier",
+      "Crystal Chandelier Living Room",
+      "Modern LED Chandeliers",
+      "Buy Chandeliers Pakistan",
+    ],
+    publishedAt: "2026-10-31",
+    updatedAt: "2026-10-31",
+    readingMinutes: 7,
+    image: "/media/blog-chandelier-size-living-room.jpg",
+    imageAlt:
+      "Large luxury crystal chandelier over a modern cream living room sofa with high ceilings and floor-to-ceiling windows",
+  },
 ] as const satisfies readonly BlogPost[];
 
 export type BlogSlug = (typeof blogPosts)[number]["slug"];

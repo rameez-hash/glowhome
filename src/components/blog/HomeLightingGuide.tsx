@@ -102,7 +102,12 @@ export function HomeLightingGuide() {
         <p>
           A statement chandelier can serve as a decorative focal point, while
           recessed ceiling lights provide general illumination. Wall lights and
-          LED strip lighting can add warmth and dimension.
+          LED strip lighting can add warmth and dimension. For scale and
+          placement tips, see{" "}
+          <ProductLink href="/blog/how-to-choose-right-chandelier-size">
+            how to choose the right chandelier size for your living room
+          </ProductLink>
+          .
         </p>
         <p className="font-medium text-ink">Recommended lighting options:</p>
         <ul className="list-disc space-y-2 pl-5">
