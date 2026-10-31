@@ -20,6 +20,8 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function BlogIndexPage() {
+  const posts = [...blogPosts].reverse();
+
   return (
     <>
       <PageHero
@@ -30,7 +32,7 @@ export default function BlogIndexPage() {
 
       <section className="section bg-bg">
         <div className="container-site grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {blogPosts.map((post) => (
+          {posts.map((post) => (
             <article
               key={post.slug}
               className="group flex flex-col overflow-hidden border border-line bg-bg-elevated"

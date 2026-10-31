@@ -8,6 +8,8 @@ type BlogGuidesProps = {
   title?: string;
   description?: string;
   className?: string;
+  /** Latest posts to show before linking to /blog. Default 4. */
+  limit?: number;
 };
 
 export function BlogGuides({
@@ -16,8 +18,14 @@ export function BlogGuides({
   title = "Lighting ideas from the Glow Home blog",
   description = "Practical guides on home lighting and smart home automation for homes across Pakistan.",
   className = "",
+  limit = 4,
 }: BlogGuidesProps) {
-  const posts = blogPosts.filter((post) => post.slug !== excludeSlug);
+  // blogPosts is oldest → newest; reverse for latest first.
+  const allPosts = [...blogPosts]
+    .filter((post) => post.slug !== excludeSlug)
+    .reverse();
+  const posts = allPosts.slice(0, limit);
+  const hasMore = allPosts.length > posts.length;
 
   if (posts.length === 0) return null;
 
@@ -52,7 +60,10 @@ export function BlogGuides({
               key={post.slug}
               className="group overflow-hidden border border-line bg-bg transition-colors hover:border-brass/35"
             >
-              <Link href={`/blog/${post.slug}`} className="grid sm:grid-cols-[0.9fr_1.1fr]">
+              <Link
+                href={`/blog/${post.slug}`}
+                className="grid sm:grid-cols-[0.9fr_1.1fr]"
+              >
                 <div className="relative aspect-[16/11] sm:aspect-auto sm:min-h-full">
                   <Image
                     src={post.image}
@@ -80,6 +91,14 @@ export function BlogGuides({
             </article>
           ))}
         </div>
+
+        {hasMore ? (
+          <div className="mt-10 flex justify-center">
+            <Link href="/blog" className="btn btn-ghost !min-h-11">
+              View more
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );
