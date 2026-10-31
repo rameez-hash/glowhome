@@ -245,7 +245,7 @@ export const productCategories = [
     title: "Pendant Lights",
     summary:
       "Statement pendants for islands, dining tables, and feature zones, sculptural form with purposeful illumination.",
-    image: "/media/products/pendant-lights-black-cylinder-dining.jpg",
+    image: "/media/products/pendant-lights-kitchen-island.jpg",
     images: [
       "/media/products/pendant-lights-black-cylinder-dining.jpg",
       "/media/products/pendant-lights-glass-globe-kitchen.jpg",
@@ -261,7 +261,7 @@ export const productCategories = [
     title: "Wall Lights",
     summary:
       "Sconces and wall fixtures that add depth, accent, and guidance along hallways, staircases, and feature walls.",
-    image: "/media/products/wall-lights-gold-crystal-sconce.jpg",
+    image: "/media/products/wall-lights-feature-accent.jpg",
     images: [
       "/media/products/wall-lights-gold-crystal-sconce.jpg",
       "/media/products/wall-lights-outdoor-updown-black.jpg",
@@ -293,7 +293,7 @@ export const productCategories = [
     title: "Floor Lamps",
     summary:
       "Freestanding floor lamps that shape lounge corners and reading nooks with portable, layered light.",
-    image: "/media/products/floor-lamps-brass-arc-living.jpg",
+    image: "/media/products/floor-lamps-reading-nook.jpg",
     images: [
       "/media/products/floor-lamps-brass-arc-living.jpg",
     ],
@@ -308,7 +308,7 @@ export const productCategories = [
     title: "Table Lamps",
     summary:
       "Table lamps for bedside, desks, and consoles, intimate glow that completes a room’s atmosphere.",
-    image: "/media/products/table-lamps-gold-mushroom-bedside.jpg",
+    image: "/media/products/table-lamps-console-accent.jpg",
     images: [
       "/media/products/table-lamps-gold-mushroom-bedside.jpg",
       "/media/products/table-lamps-crystal-drum-bedside.jpg",
@@ -356,7 +356,7 @@ export const productCategories = [
     title: "Track Lighting",
     summary:
       "Track systems for galleries, retail, and flexible interiors, aimable heads that adapt as spaces change.",
-    image: "/media/products/track-lighting-bedroom-magnetic.jpg",
+    image: "/media/products/track-lighting-kitchen-magnetic-pendants.jpg",
     images: [
       "/media/products/track-lighting-bedroom-magnetic.jpg",
       "/media/products/track-lighting-living-linear.jpg",
@@ -401,7 +401,7 @@ export const productCategories = [
     title: "LED Strips",
     summary:
       "Linear LED strips for coves, niches, stairs, and under-cabinet glow, continuous light with smart control.",
-    image: "/media/products/led-strips-shelves.jpg",
+    image: "/media/products/led-strips-living-linear-cove.jpg",
     images: [
       "/media/products/led-strips-shelves.jpg",
       "/media/products/led-strips-kitchen.jpg",
@@ -425,7 +425,7 @@ export const productCategories = [
     title: "Decor",
     summary:
       "Elevate your space with pieces that make every corner feel special, curated décor accents styled with light.",
-    image: "/media/products/decor-organic-gold-mirror.jpg",
+    image: "/media/products/decor.jpg",
     images: [
       "/media/products/decor-organic-gold-mirror.jpg",
       "/media/products/decor-arched-window-mirror.jpg",
