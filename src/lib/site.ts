@@ -249,8 +249,6 @@ export const productCategories = [
     images: [
       "/media/products/pendant-lights-black-cylinder-dining.jpg",
       "/media/products/pendant-lights-glass-globe-kitchen.jpg",
-      "/media/products/pendant-lights-kitchen-island.jpg",
-      "/media/products/pendant-lights-dining-feature.jpg",
     ],
     highlights: [
       "Creates a clear focal point above dining tables, kitchen islands, and feature seating zones.",
@@ -267,8 +265,6 @@ export const productCategories = [
     images: [
       "/media/products/wall-lights-gold-crystal-sconce.jpg",
       "/media/products/wall-lights-outdoor-updown-black.jpg",
-      "/media/products/wall-lights-feature-accent.jpg",
-      "/media/products/wall-lights-corridor-sconce.jpg",
     ],
     highlights: [
       "Adds accent and pathway light along corridors, stairs, and feature walls with quiet presence.",
@@ -300,8 +296,6 @@ export const productCategories = [
     image: "/media/products/floor-lamps-brass-arc-living.jpg",
     images: [
       "/media/products/floor-lamps-brass-arc-living.jpg",
-      "/media/products/floor-lamps-reading-nook.jpg",
-      "/media/products/floor-lamps-lounge-corner.jpg",
     ],
     highlights: [
       "Flexible lounge and reading light you can place where the room needs warmth and focus.",
@@ -318,8 +312,6 @@ export const productCategories = [
     images: [
       "/media/products/table-lamps-gold-mushroom-bedside.jpg",
       "/media/products/table-lamps-crystal-drum-bedside.jpg",
-      "/media/products/table-lamps-console-accent.jpg",
-      "/media/products/table-lamps-bedside-glow.jpg",
     ],
     highlights: [
       "Intimate glow for bedside tables, desks, and consoles where soft local light matters most.",
@@ -364,7 +356,7 @@ export const productCategories = [
     title: "Track Lighting",
     summary:
       "Track systems for galleries, retail, and flexible interiors, aimable heads that adapt as spaces change.",
-    image: "/media/products/track-lighting-kitchen-magnetic-pendants.jpg",
+    image: "/media/products/track-lighting-bedroom-magnetic.jpg",
     images: [
       "/media/products/track-lighting-bedroom-magnetic.jpg",
       "/media/products/track-lighting-living-linear.jpg",
@@ -374,7 +366,6 @@ export const productCategories = [
       "/media/products/track-lighting-living-recessed.jpg",
       "/media/products/track-lighting-kitchen-spots.jpg",
       "/media/products/track-lighting-kitchen-island.jpg",
-      "/media/products/track-lighting-kitchen-magnetic-pendants.jpg",
       "/media/products/track-lighting-dining-pendants.jpg",
       "/media/products/track-lighting-hallway-art.jpg",
       "/media/products/track-lighting-art-gallery.jpg",
@@ -382,7 +373,6 @@ export const productCategories = [
       "/media/products/track-lighting-restaurant.jpg",
       "/media/products/track-lighting-showroom-cars.jpg",
       "/media/products/track-lighting-conference-room.jpg",
-      "/media/products/track-lighting-office-corridor.jpg",
     ],
     highlights: [
       "Aimable heads adapt easily for galleries, retail displays, and changing interior layouts.",
@@ -423,7 +413,6 @@ export const productCategories = [
       "/media/products/led-strips-exterior-villa.jpg",
       "/media/products/led-strips-profile-living.jpg",
       "/media/products/led-strips-rgb-bedroom.jpg",
-      "/media/products/led-strips-living-linear-cove.jpg",
     ],
     highlights: [
       "Continuous lines for coves, niches, stairs, and under-cabinet glow with refined detailing.",
@@ -452,12 +441,6 @@ export const productCategories = [
       "/media/products/decor-brass-hourglass.jpg",
       "/media/products/decor-gold-candle-rings.jpg",
       "/media/products/decor-marble-bookends.jpg",
-      "/media/products/decor-console-candle-styling.jpg",
-      "/media/products/decor-living-sconces-cove.jpg",
-      "/media/products/decor-living-linear-ceiling.jpg",
-      "/media/products/decor-sphere-pendant-lounge.jpg",
-      "/media/products/decor-office-led-panels.jpg",
-      "/media/products/decor-garden-bollard-lights.jpg",
       "/media/products/decor-living-recessed-cove.jpg",
     ],
     highlights: [
@@ -474,29 +457,11 @@ export function getProductCategoryBySlug(slug: string) {
   return productCategories.find((category) => category.slug === slug);
 }
 
-/** Shared lifestyle frames used to keep every product gallery at six images. */
-const productGalleryFillers = [
-  "/media/glow-home-gallery-interior-lighting.jpg",
-  "/media/glow-home-elegant-interior-lighting.jpg",
-  "/media/glow-home-private-residence-lighting.jpg",
-  "/media/glow-home-solution-luxury-residence.jpg",
-  "/media/glow-home-premium-decorative-lighting.jpg",
-  "/media/glow-home-commercial-feature-lighting.jpg",
-  "/media/glow-home-solution-commercial-space.jpg",
-  "/media/glow-home-solution-office-workspace.jpg",
-  "/media/glow-home-curated-decor-lighting.jpg",
-  "/media/glow-home-architectural-material-lighting.jpg",
-  "/media/glow-home-ambient-smart-home-lighting.jpg",
-  "/media/blog-home-lighting-ideas-living-dining.jpg",
-] as const;
+/** Initial gallery rows × columns (3 × 4). Extra images load via Load More. */
+export const productGalleryPageSize = 12;
 
-/** Initial gallery rows × columns (3 × 3). Extra images load via Load More. */
-export const productGalleryPageSize = 9;
-
-export function getProductCategoryImages(
-  category: ProductCategory,
-  minCount = productGalleryPageSize,
-) {
+/** Only the images supplied for each category — no shared fillers. */
+export function getProductCategoryImages(category: ProductCategory) {
   const seen = new Set<string>();
   const gallery: string[] = [];
 
@@ -504,16 +469,6 @@ export function getProductCategoryImages(
     if (seen.has(src)) continue;
     seen.add(src);
     gallery.push(src);
-  }
-
-  // Own gallery images always show in full; pad only thin categories.
-  if (gallery.length >= minCount) return gallery;
-
-  for (const src of productGalleryFillers) {
-    if (seen.has(src)) continue;
-    seen.add(src);
-    gallery.push(src);
-    if (gallery.length >= minCount) break;
   }
 
   return gallery;

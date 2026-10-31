@@ -18,7 +18,7 @@ export function ProductGallery({ title, images }: ProductGalleryProps) {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
         {shown.map((src, index) => (
           <div
             key={`${src}-${index}`}
@@ -28,8 +28,8 @@ export function ProductGallery({ title, images }: ProductGalleryProps) {
               src={src}
               alt={`${title} lighting gallery by Glow Home, view ${index + 1}`}
               fill
-              loading={index < 3 ? "eager" : "lazy"}
-              sizes="(max-width: 640px) 50vw, 33vw"
+              loading={index < 4 ? "eager" : "lazy"}
+              sizes="(max-width: 640px) 50vw, 25vw"
               className="object-cover transition-transform duration-700 hover:scale-[1.03]"
             />
           </div>
