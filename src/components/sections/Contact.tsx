@@ -74,21 +74,21 @@ export function Contact() {
         <Reveal delay={0.1} className="h-full">
           <div className="relative flex h-full flex-col border border-line-strong bg-bg p-6 md:p-8">
             <div className="geo-frame" />
-            <div className="mb-7">
+            <div className="mb-7 text-center">
               <p className="text-xs uppercase tracking-[0.2em] text-brass-soft">
                 Consultation
               </p>
               <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl tracking-tight md:text-[1.75rem]">
                 Request a project discussion
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink-dim">
+              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink-dim">
                 Share a few details and we&apos;ll get back with next steps.
               </p>
             </div>
 
             <form
               onSubmit={onSubmit}
-              className="grid flex-1 content-start gap-5"
+              className="mx-auto grid w-full max-w-xl flex-1 content-start gap-5"
               aria-label="Consultation request"
             >
               <div className="grid gap-5 sm:grid-cols-2">
