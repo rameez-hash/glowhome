@@ -460,18 +460,63 @@ export function getProductCategoryBySlug(slug: string) {
 /** Initial gallery rows × columns (3 × 4). Extra images load via Load More. */
 export const productGalleryPageSize = 12;
 
-/** Only the images supplied for each category — no shared fillers. */
-export function getProductCategoryImages(category: ProductCategory) {
-  const seen = new Set<string>();
-  const gallery: string[] = [];
+/**
+ * Shared gallery used on every product page — all curated lifestyle shots
+ * (LED strips, track, decor, and the latest product images).
+ */
+export const sharedProductGalleryImages = [
+  "/media/products/led-strips-shelves.jpg",
+  "/media/products/led-strips-kitchen.jpg",
+  "/media/products/led-strips-wardrobe.jpg",
+  "/media/products/led-strips-bathroom.jpg",
+  "/media/products/led-strips-staircase.jpg",
+  "/media/products/led-strips-bedroom-warm.jpg",
+  "/media/products/led-strips-bedroom-cove.jpg",
+  "/media/products/led-strips-exterior-villa.jpg",
+  "/media/products/led-strips-profile-living.jpg",
+  "/media/products/led-strips-rgb-bedroom.jpg",
+  "/media/products/track-lighting-bedroom-magnetic.jpg",
+  "/media/products/track-lighting-living-linear.jpg",
+  "/media/products/track-lighting-curved-penthouse.jpg",
+  "/media/products/track-lighting-open-plan-living.jpg",
+  "/media/products/track-lighting-living-modular.jpg",
+  "/media/products/track-lighting-living-recessed.jpg",
+  "/media/products/track-lighting-kitchen-spots.jpg",
+  "/media/products/track-lighting-kitchen-island.jpg",
+  "/media/products/track-lighting-dining-pendants.jpg",
+  "/media/products/track-lighting-hallway-art.jpg",
+  "/media/products/track-lighting-art-gallery.jpg",
+  "/media/products/track-lighting-boutique-retail.jpg",
+  "/media/products/track-lighting-restaurant.jpg",
+  "/media/products/track-lighting-showroom-cars.jpg",
+  "/media/products/track-lighting-conference-room.jpg",
+  "/media/products/decor-organic-gold-mirror.jpg",
+  "/media/products/decor-arched-window-mirror.jpg",
+  "/media/products/decor-sunburst-mirror.jpg",
+  "/media/products/decor-blob-mirror-console.jpg",
+  "/media/products/decor-gold-branch-wall.jpg",
+  "/media/products/decor-botanical-triptych.jpg",
+  "/media/products/decor-abstract-triptych.jpg",
+  "/media/products/decor-picture-light-art.jpg",
+  "/media/products/decor-horse-sculpture.jpg",
+  "/media/products/decor-gold-leaf-sculpture.jpg",
+  "/media/products/decor-deer-figurines.jpg",
+  "/media/products/decor-brass-hourglass.jpg",
+  "/media/products/decor-gold-candle-rings.jpg",
+  "/media/products/decor-marble-bookends.jpg",
+  "/media/products/decor-living-recessed-cove.jpg",
+  "/media/products/pendant-lights-black-cylinder-dining.jpg",
+  "/media/products/pendant-lights-glass-globe-kitchen.jpg",
+  "/media/products/table-lamps-gold-mushroom-bedside.jpg",
+  "/media/products/table-lamps-crystal-drum-bedside.jpg",
+  "/media/products/wall-lights-gold-crystal-sconce.jpg",
+  "/media/products/wall-lights-outdoor-updown-black.jpg",
+  "/media/products/floor-lamps-brass-arc-living.jpg",
+] as const;
 
-  for (const src of category.images) {
-    if (seen.has(src)) continue;
-    seen.add(src);
-    gallery.push(src);
-  }
-
-  return gallery;
+/** Same full gallery on every product category page. */
+export function getProductCategoryImages(_category?: ProductCategory) {
+  return [...sharedProductGalleryImages];
 }
 
 export const processSteps = [
