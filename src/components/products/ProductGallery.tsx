@@ -32,7 +32,7 @@ export function ProductGallery({ title, images }: ProductGalleryProps) {
               // First paint: only one eager image; rest lazy for Vercel image CDN.
               loading={index === 0 ? "eager" : "lazy"}
               fetchPriority={index === 0 ? "high" : "low"}
-              quality={70}
+              quality={75}
               sizes="(max-width: 640px) 50vw, 25vw"
               className="object-cover transition-transform duration-700 hover:scale-[1.03]"
             />

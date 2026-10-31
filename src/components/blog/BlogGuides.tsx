@@ -69,7 +69,7 @@ export function BlogGuides({
                     src={post.image}
                     alt={post.imageAlt}
                     fill
-                    quality={70}
+                    quality={75}
                     loading="lazy"
                     sizes="(max-width: 640px) 100vw, 40vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"

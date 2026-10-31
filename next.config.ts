@@ -3,11 +3,11 @@ import { legacyRedirects } from "./redirects";
 
 const nextConfig: NextConfig = {
   images: {
-    formats: ["image/webp", "image/avif"],
-    // Fewer width buckets → higher CDN cache hits for gallery thumbs.
+    // WebP only. AVIF is encoded on the fly by Vercel and slows first loads.
+    formats: ["image/webp"],
     deviceSizes: [640, 828, 1200],
     imageSizes: [128, 256, 384],
-    qualities: [70, 75],
+    qualities: [75],
     minimumCacheTTL: 2678400,
   },
   poweredByHeader: false,

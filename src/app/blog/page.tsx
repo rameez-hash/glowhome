@@ -45,7 +45,7 @@ export default function BlogIndexPage() {
                   src={post.image}
                   alt={post.imageAlt}
                   fill
-                  quality={70}
+                  quality={75}
                   loading={index === 0 ? "eager" : "lazy"}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
