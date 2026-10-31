@@ -391,10 +391,18 @@ export const productCategories = [
       "Linear LED strips for coves, niches, stairs, and under-cabinet glow, continuous light with smart control.",
     image: "/media/products/led-strips-v2.jpg",
     images: [
-      "/media/products/led-strips-v2.jpg",
-      "/media/products/led-strips.jpg",
+      "/media/products/led-strips-shelves.jpg",
+      "/media/products/led-strips-kitchen.jpg",
+      "/media/products/led-strips-wardrobe.jpg",
+      "/media/products/led-strips-bathroom.jpg",
+      "/media/products/led-strips-staircase.jpg",
+      "/media/products/led-strips-bedroom-warm.jpg",
+      "/media/products/led-strips-bedroom-cove.jpg",
+      "/media/products/led-strips-exterior-villa.jpg",
       "/media/products/led-strips-profile-living.jpg",
       "/media/products/led-strips-rgb-bedroom.jpg",
+      "/media/products/led-strips-v2.jpg",
+      "/media/products/led-strips.jpg",
     ],
     highlights: [
       "Continuous lines for coves, niches, stairs, and under-cabinet glow with refined detailing.",
@@ -436,8 +444,6 @@ const productGalleryFillers = [
   "/media/glow-home-elegant-interior-lighting.jpg",
   "/media/glow-home-private-residence-lighting.jpg",
   "/media/glow-home-solution-luxury-residence.jpg",
-  "/media/products/led-strips-profile-living.jpg",
-  "/media/products/led-strips-rgb-bedroom.jpg",
   "/media/glow-home-premium-decorative-lighting.jpg",
   "/media/glow-home-commercial-feature-lighting.jpg",
   "/media/glow-home-solution-commercial-space.jpg",
@@ -455,7 +461,16 @@ export function getProductCategoryImages(
   const seen = new Set<string>();
   const gallery: string[] = [];
 
-  for (const src of [...category.images, ...productGalleryFillers]) {
+  for (const src of category.images) {
+    if (seen.has(src)) continue;
+    seen.add(src);
+    gallery.push(src);
+  }
+
+  // Categories with a full own gallery keep only their images.
+  if (gallery.length >= count) return gallery;
+
+  for (const src of productGalleryFillers) {
     if (seen.has(src)) continue;
     seen.add(src);
     gallery.push(src);
