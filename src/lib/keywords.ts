@@ -580,10 +580,12 @@ export const categorySeo: Record<string, CategorySeo> = {
   "led-strips": {
     title: "LED Strip Lights in Pakistan | Profiles, Neon Flex & Cove Lighting",
     description:
-      "LED strip lights, COB LED strips, aluminum LED profiles, LED channels, neon flex and drivers for cove, concealed and indirect lighting. Dimmable and RGB options at Glow Home Pakistan.",
+      "Shop quality LED strip lights in Pakistan for cove, concealed and indirect lighting. COB LED strips, profiles, neon flex and drivers at Glow Home, part of the best LED lighting options for modern homes.",
     keywords: [
       "LED Strip Lights",
       "LED Strips",
+      "Best LED Lights in Pakistan",
+      "LED Lights Pakistan",
       "Strip Lights",
       "COB LED Strip",
       "LED Profiles",

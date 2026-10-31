@@ -65,6 +65,33 @@ export const blogPosts = [
     imageAlt:
       "Smart home app controlling living room lighting and scenes in a luxury Pakistani residence",
   },
+  {
+    slug: "best-led-lights-in-pakistan",
+    title: "Best LED Lights in Pakistan: Types, Buying Guide & Room Ideas",
+    excerpt:
+      "Discover the best LED lights in Pakistan for homes and interiors, including downlights, ceiling lights, LED strips, spotlights, and practical buying tips from Glow Home.",
+    metaTitle: "Best LED Lights in Pakistan | Glow Home",
+    metaDescription:
+      "Find the best LED lights in Pakistan for living rooms, bedrooms, kitchens and offices. Compare LED types, color temperature tips and buy quality lighting at Glow Home.",
+    focusKeyword: "Best LED Lights in Pakistan",
+    keywords: [
+      "Best LED Lights in Pakistan",
+      "Pakistan best LED Lights",
+      "LED Lights Pakistan",
+      "LED Lights Price in Pakistan",
+      "Buy LED Lights Pakistan",
+      "LED Ceiling Lights",
+      "LED Downlights",
+      "LED Strip Lights",
+      "LED Lighting Store Pakistan",
+    ],
+    publishedAt: "2026-10-31",
+    updatedAt: "2026-10-31",
+    readingMinutes: 7,
+    image: "/media/blog-best-led-lights-pakistan.jpg",
+    imageAlt:
+      "Modern hallway with recessed LED spotlights and warm cove lighting",
+  },
 ] as const satisfies readonly BlogPost[];
 
 export type BlogSlug = (typeof blogPosts)[number]["slug"];

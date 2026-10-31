@@ -215,6 +215,10 @@ export function SmartHomeAutomationGuide() {
           <ProductLink href="/blog/how-to-choose-perfect-home-lighting">
             how to choose perfect home lighting
           </ProductLink>
+          . To compare fixture types, see{" "}
+          <ProductLink href="/blog/best-led-lights-in-pakistan">
+            best LED lights in Pakistan
+          </ProductLink>
           .
         </p>
       </section>

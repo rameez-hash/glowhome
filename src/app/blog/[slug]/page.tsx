@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BestLedLightsGuide } from "@/components/blog/BestLedLightsGuide";
 import { BlogGuides } from "@/components/blog/BlogGuides";
 import { HomeLightingGuide } from "@/components/blog/HomeLightingGuide";
 import { SmartHomeAutomationGuide } from "@/components/blog/SmartHomeAutomationGuide";
@@ -16,6 +17,7 @@ import {
 const guideBySlug = {
   "how-to-choose-perfect-home-lighting": HomeLightingGuide,
   "smart-home-automation-in-pakistan": SmartHomeAutomationGuide,
+  "best-led-lights-in-pakistan": BestLedLightsGuide,
 } as const;
 
 type Params = { slug: string };
@@ -124,25 +126,33 @@ export default async function BlogPostPage({
               <p className="font-[family-name:var(--font-display)] text-2xl tracking-tight text-ink md:text-3xl">
                 {slug === "smart-home-automation-in-pakistan"
                   ? "Ready for smarter living?"
-                  : "Ready to light your space?"}
+                  : slug === "best-led-lights-in-pakistan"
+                    ? "Ready to choose better LED lighting?"
+                    : "Ready to light your space?"}
               </p>
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-muted md:text-base">
                 {slug === "smart-home-automation-in-pakistan"
                   ? "Explore Glow Home lighting and automation options, or talk to our team about a solution for your home."
-                  : "Explore Glow Home collections or talk to our team about the right fixtures for every room in your home."}
+                  : slug === "best-led-lights-in-pakistan"
+                    ? "Browse Glow Home LED collections or talk to our team about the right fixtures for your rooms."
+                    : "Explore Glow Home collections or talk to our team about the right fixtures for every room in your home."}
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href={
                     slug === "smart-home-automation-in-pakistan"
                       ? "/automation"
-                      : "/products"
+                      : slug === "best-led-lights-in-pakistan"
+                        ? "/products/led-strips"
+                        : "/products"
                   }
                   className="btn"
                 >
                   {slug === "smart-home-automation-in-pakistan"
                     ? "View automation"
-                    : "Browse products"}
+                    : slug === "best-led-lights-in-pakistan"
+                      ? "Browse LED lights"
+                      : "Browse products"}
                 </Link>
                 <Link href="/contact" className="btn btn-ghost">
                   Book consultation
