@@ -7,7 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description:
       "Smart home automation and premium lighting solutions for modern living.",
     start_url: "/",
-    display: "standalone",
+    // Normal website tab — not an installable standalone app (avoids “Install” prompts).
+    display: "browser",
     background_color: "#0E0E0C",
     theme_color: "#0E0E0C",
     icons: [
