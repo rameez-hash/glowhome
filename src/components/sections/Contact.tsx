@@ -156,11 +156,11 @@ export function Contact() {
           </div>
         </Reveal>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2 md:gap-5">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 md:items-stretch md:gap-5">
           {siteConfig.locations.map((place, index) => (
-            <Reveal key={place.label} delay={index * 0.08}>
-              <div className="overflow-hidden border border-line bg-bg">
-                <div className="relative aspect-[16/10] bg-bg-elevated">
+            <Reveal key={place.label} delay={index * 0.08} className="h-full">
+              <div className="flex h-full flex-col overflow-hidden border border-line bg-bg">
+                <div className="relative aspect-[16/10] shrink-0 bg-bg-elevated">
                   <iframe
                     title={`Map of Glow Home ${place.label}`}
                     src={place.embedUrl}
@@ -174,18 +174,18 @@ export function Contact() {
                   href={place.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-start justify-between gap-4 border-t border-line p-5 transition-colors hover:bg-bg-elevated"
+                  className="group flex min-h-[8.5rem] flex-1 flex-col border-t border-line p-5 transition-colors hover:bg-bg-elevated sm:min-h-[9rem]"
                 >
-                  <span>
+                  <span className="flex items-center justify-between gap-4">
                     <span className="text-[0.65rem] uppercase tracking-[0.18em] text-brass-soft">
                       {place.label}
                     </span>
-                    <span className="mt-2 block text-sm leading-relaxed text-ink-muted transition-colors group-hover:text-ink">
-                      {place.address}
+                    <span className="shrink-0 text-[0.62rem] uppercase tracking-[0.16em] text-brass transition-transform group-hover:translate-x-0.5">
+                      Maps →
                     </span>
                   </span>
-                  <span className="shrink-0 text-[0.62rem] uppercase tracking-[0.16em] text-brass transition-transform group-hover:translate-x-0.5">
-                    Maps →
+                  <span className="mt-3 flex-1 text-sm leading-relaxed text-ink-muted transition-colors group-hover:text-ink">
+                    {place.address}
                   </span>
                 </a>
               </div>
