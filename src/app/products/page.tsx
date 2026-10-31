@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BlogGuides } from "@/components/blog/BlogGuides";
 import { PageHero } from "@/components/layout/PageHero";
 import { Products } from "@/components/sections/Products";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -28,6 +29,10 @@ export default function ProductsPage() {
         description="Explore curated product categories, from ceiling lights and pendants to chandeliers, track lighting, and LED strips."
       />
       <Products />
+      <BlogGuides
+        title="Need help choosing lighting?"
+        description="Read our home lighting ideas guide and smart home automation tips before you select fixtures."
+      />
       <JsonLd
         data={[
           breadcrumbJsonLd([{ name: "Products", path: "/products" }]),

@@ -56,6 +56,7 @@ export const navLinks = [
 export const productNavItems = [
   { href: "/products", label: "All products" },
   { href: "/automation", label: "Automation", badge: "Coming soon" },
+  { href: "/blog", label: "Lighting guides" },
 ] as const;
 
 export const brands = [

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BlogGuides } from "@/components/blog/BlogGuides";
 import { HomeLightingGuide } from "@/components/blog/HomeLightingGuide";
 import { SmartHomeAutomationGuide } from "@/components/blog/SmartHomeAutomationGuide";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -151,6 +152,13 @@ export default async function BlogPostPage({
           </div>
         </div>
       </article>
+
+      <BlogGuides
+        excludeSlug={post.slug}
+        eyebrow="Related guide"
+        title="Continue reading"
+        description="More lighting and automation ideas from Glow Home."
+      />
 
       <JsonLd
         data={[

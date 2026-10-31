@@ -11,6 +11,7 @@ import { Process } from "@/components/sections/Process";
 import { Clients } from "@/components/sections/Clients";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
+import { BlogGuides } from "@/components/blog/BlogGuides";
 import { BrandMarquee } from "@/components/ui/BrandMarquee";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqJsonLd, productListJsonLd, serviceJsonLd } from "@/lib/seo";
@@ -39,6 +40,7 @@ export default function HomePage() {
       <Decor />
       <Brands />
       <Clients />
+      <BlogGuides />
       <FAQ />
       <Contact />
       <JsonLd data={[faqJsonLd(), productListJsonLd(), ...serviceJsonLd()]} />

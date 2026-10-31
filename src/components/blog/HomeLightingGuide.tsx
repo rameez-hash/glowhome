@@ -335,7 +335,12 @@ export function HomeLightingGuide() {
         <p>
           Discover elegant lighting solutions at Glow Home and bring your
           interior design vision to life. Explore our collections and find
-          inspiration for your next home improvement project.
+          inspiration for your next home improvement project. For connected
+          lighting control, also read our guide to{" "}
+          <ProductLink href="/blog/smart-home-automation-in-pakistan">
+            smart home automation in Pakistan
+          </ProductLink>
+          .
         </p>
       </section>
     </div>

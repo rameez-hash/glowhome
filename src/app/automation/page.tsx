@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { BlogGuides } from "@/components/blog/BlogGuides";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -216,12 +217,14 @@ export default function AutomationPage() {
             <Link href="/products" className="btn btn-ghost">
               Browse lighting
             </Link>
-            <Link href="/services" className="btn btn-ghost">
-              View services
-            </Link>
           </div>
         </div>
       </section>
+
+      <BlogGuides
+        title="Learn more about smart living"
+        description="Read our guide to smart home automation in Pakistan and room-by-room lighting ideas."
+      />
 
       <JsonLd
         data={breadcrumbJsonLd([
